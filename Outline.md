@@ -14,7 +14,7 @@ Sample argparse usage and help information
 
 Setting up a basic logger with stdout and log file support.
 
-### 
+### Recursive file explorations
 
 ### CSV writing
 
