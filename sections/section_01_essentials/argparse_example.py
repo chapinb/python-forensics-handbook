@@ -28,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
 
 __author__ = 'Chapin Bryce'
 __date__ = 20190527
-__license = 'MIT Copyright 2019 Chapin Bryce'
+__license__ = 'MIT Copyright 2019 Chapin Bryce'
 __desc__ = '''Sample script to accept command line arguments.'''
 __docs__ = [
     'https://docs.python.org/3/library/argparse.html',
@@ -44,11 +44,11 @@ if __name__ == '__main__':
         epilog=f"Built by {__author__}, v.{__date__}"
     )
     parser.add_argument('INPUT_FILE', help="Input file to parse")
-    parser.add_argument('OUTPUT_FOLDER', 
+    parser.add_argument('OUTPUT_FOLDER',
         help="Folder to store output")
     parser.add_argument('-l', '--log', help="Path to log file",
         default=os.path.abspath(os.path.join(
-            PurePath(__file__).parent, 
+            PurePath(__file__).parent,
             PurePath(__file__).name.rsplit('.', 1)[0] + '.log'))
     )
     parser.add_argument('-v', '--verbose', action='store_true',

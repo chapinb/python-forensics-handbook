@@ -27,7 +27,7 @@ DEALINGS IN THE SOFTWARE.
 
 __author__ = 'Chapin Bryce'
 __date__ = 20190527
-__license = 'MIT Copyright 2019 Chapin Bryce'
+__license__ = 'MIT Copyright 2019 Chapin Bryce'
 __desc__ = '''Sample script to write to CSV files.'''
 __docs__ = [
     'https://docs.python.org/3/library/csv.html',
