@@ -1,5 +1,72 @@
+"""Example for writing datasets into CSV files.
+
+Demonstrates source datasets comprised of lists of dictionaries
+and lists of lists as separate functions. Example data is
+provided in line and will generate two identical CSVs as output.
+
+Example Usage:
+
+    ``$ python csv_example.py``
+
+References:
+
+* https://docs.python.org/3/library/csv.html
+* https://docs.python.org/3/library/os.html
+
+
+List of dictionaries to CSV
+===========================
+
+Example ``data`` variable:
+
+::
+
+    [
+        {'name': 'apple', 'quantity': 10, 'location': 'VT'},
+        {'name': 'orange', 'quantity': 5, 'location': 'FL'}
+    ]
+
+This first function shows an example of writing a list containing
+multiple dictionaries to a CSV file. You can optionally provide
+an ordered list of headers to filter what rows to show, or let the
+function use the keys of the first dictionary in the list to
+generate the header information. The latter option may produce
+a new order each iteration and is not prefered if you can
+determine the headers in advance.
+
+.. literalinclude:: ../sections/section_01/csv_example.py
+    :pyobject: write_csv_dicts
+
+List of ordered lists to CSV
+============================
+
+Example ``data`` variable:
+
+::
+
+    [
+        ['name', 'quantity', 'location'],
+        ['apple', 10, 'VT'],
+        ['orange', 5, 'FL']
+    ]
+
+This function shows an example of writing a list containing
+multiple lists to a CSV file. You can optionally provide
+an ordered list of headers, or let the function use the values
+of the first element in the list to generate the header
+information. Unlike the dictionary option, you cannot filter
+column data by adjusting the provided headers, you must write all
+columns to the CSV.
+
+.. literalinclude:: ../sections/section_01/csv_example.py
+    :pyobject: write_csv_lists
+
+
+Docstring References
+====================
+"""
+
 import csv
-import os
 
 """
 Copyright 2019 Chapin Bryce
@@ -89,7 +156,7 @@ sample_dict_data = [
 
 write_csv_dicts('dict_test.csv', sample_dict_data)
 
-headers = ['id', 'city', 'state', 'country']
+header_row = ['id', 'city', 'state', 'country']
 sample_list_data = [
     ['0', 'Boston', 'MA', 'USA'],
     ['1', 'New York', 'NY', 'USA'],
@@ -97,4 +164,4 @@ sample_list_data = [
 ]
 
 write_csv_lists('list_test.csv', sample_list_data,
-                headers=headers)
+                headers=header_row)
