@@ -1,11 +1,10 @@
-image: alpine
+image: python:3.7.3-slim-stretch
 
 pages:
   script:
-  - apk --no-cache add py3-pip python3-dev gcc make
+  - apt instal python3-pip python3-dev build-essentials
   - pip3 install --upgrade pip
   - pip3 install -r dev_requirements.txt
-  - apk --no-cache add make
   - cd docs
   - make html
   - mv _build/ public/
