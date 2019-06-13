@@ -10,7 +10,7 @@ A guide for developing Python scripts in DFIR
 ---------------------------------------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    section1
