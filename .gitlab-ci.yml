@@ -2,7 +2,7 @@ image: python:3.7.3-slim-stretch
 
 pages:
   script:
-  - apt instal python3-pip python3-dev build-essentials
+  - apt install python3-pip python3-dev build-essentials
   - pip3 install --upgrade pip
   - pip3 install -r dev_requirements.txt
   - cd docs
