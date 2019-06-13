@@ -8,13 +8,6 @@ This handbook is not intended to be read in order - if anything
 this outline is the main launching point to find the correct page
 containing the code block you wish to reference.
 
-    **Tip**
-
-    On each of the subpages containing descriptions of the code, you
-    can click the ``[source]`` button to the right of the class or
-    function definition and see the source code with the
-    documentation in line.
-
 Section 1 - Essential Script Elements
 -------------------------------------
 
