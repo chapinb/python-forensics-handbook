@@ -100,11 +100,17 @@ def iterate_files(path):
             # To effectively reference a file, you should include
             # the below line which creates a full path reference
             # to the specific file, regardless of how nested it is
-            file_entry = os.path.join(root, file_entry)
+            file_entry = os.path.join(root, fentry)
             # We can then hand `file_entry` off to other functions.
             if file_entry.endswith('py'):
                 num_py_files += 1
+    print(f"Number of folders: {num_folders}")
+    print(f"Number of files: {num_files}")
+    print(f"Number of Python files: {num_py_files}")
 
 if __name__ == "__main__":
+    abspath = os.path.abspath
+    print(f"Listing {abspath('.')}")
     list_directory('.')
+    print(f"Recurively counting files in {abspath('../../')}")
     iterate_files('../../')
