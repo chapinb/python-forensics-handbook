@@ -6,8 +6,10 @@ pages:
   - pip install -r dev_requirements.txt
   - cd docs
   - make html
+  - mkdir ../public/
+  - mv _build/html/ ../public/
   artifacts:
     paths:
-    - _build/html
+    - public
   only:
   - master
