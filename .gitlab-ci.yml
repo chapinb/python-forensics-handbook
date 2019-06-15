@@ -1,13 +1,12 @@
-image: python:3.7.3-slim-stretch
+image: python:3.7.3-alpine
 
 pages:
   script:
-  - apt update && apt install -y build-essential
-  - pip3 install -r dev_requirements.txt
+  - pip install -r dev_requirements.txt
+  - apk --no-cache add make
   - cd docs
   - make html
-  - mkdir public
-  - mv _build/html public/
+  - mv _build/html/ public/
   artifacts:
     paths:
     - public
