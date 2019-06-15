@@ -2,8 +2,8 @@ image: python:3.7.3-alpine
 
 pages:
   script:
+  - apk --no-cache add make gcc
   - pip install -r dev_requirements.txt
-  - apk --no-cache add make
   - cd docs
   - make html
   - mv _build/html/ public/
