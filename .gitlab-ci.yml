@@ -2,12 +2,10 @@ image: python:3.7.3-slim-stretch
 
 pages:
   script:
-  - apt update
-  - apt install -y build-essential
-  - pip3 install --upgrade pip
   - pip3 install -r dev_requirements.txt
   - cd docs
   - make html
+  - mkdir public
   - mv _build/html public/
   artifacts:
     paths:
