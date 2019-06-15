@@ -11,7 +11,7 @@ A guide for developing Python scripts in DFIR
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Table of Contents:
 
    section1
 
