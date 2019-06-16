@@ -51,17 +51,19 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 # html_theme = 'alabaster'
 
-import cakephp_theme
-html_theme_path = [cakephp_theme.get_html_theme_path()]
-html_theme = 'cakephp_theme'
-extensions.append('cakephp_theme')
-html_context = {
-    'maintainer': 'Chapin Bryce',
-    'project_pretty_name': 'Python Forensics Handbook',
-    'projects': {
-        'Python Forensics Handbook': 'https://chapinb.github.io/python-forensics-handbook/'
-    }
-}
+html_theme = 'sphinx_rtd_theme'
+
+# import cakephp_theme
+# html_theme_path = [cakephp_theme.get_html_theme_path()]
+# html_theme = 'cakephp_theme'
+# extensions.append('cakephp_theme')
+# html_context = {
+#     'maintainer': 'Chapin Bryce',
+#     'project_pretty_name': 'Python Forensics Handbook',
+#     'projects': {
+#         'Python Forensics Handbook': 'https://chapinb.github.io/python-forensics-handbook/'
+#     }
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
