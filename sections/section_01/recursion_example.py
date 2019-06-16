@@ -81,10 +81,6 @@ def list_directory(path):
         print(f"\t{entry}")
 
 def iterate_files(path):
-    """Iterate over the `path` recursively."""
-    num_files = 0
-    num_py_files = 0
-    num_folders = 0
     # Though `os.walk()` exposes a list of directories in the
     # current `root`, it is rarely used since we are generally
     # interested in the files found within the subdirectories.
@@ -92,25 +88,24 @@ def iterate_files(path):
     # DO NOT NAME `dirs` as `dir` since `dir` is a reserved word!
     for root, dirs, files in os.walk(os.path.abspath(path)):
         # Both `dirs` and `files` are lists containing all entries
-        # at the current `root`. This means we can quickly count
-        # the number of files and folders by taking the `len()`.
-        num_folders += len(dirs)
-        num_files += len(files)
+        # at the current `root`.
         for fentry in files:
             # To effectively reference a file, you should include
             # the below line which creates a full path reference
             # to the specific file, regardless of how nested it is
             file_entry = os.path.join(root, fentry)
             # We can then hand `file_entry` off to other functions.
-            if file_entry.endswith('py'):
-                num_py_files += 1
-    print(f"Number of folders: {num_folders}")
-    print(f"Number of files: {num_files}")
-    print(f"Number of Python files: {num_py_files}")
+            yield file_entry
+
 
 if __name__ == "__main__":
     abspath = os.path.abspath
     print(f"Listing {abspath('.')}")
     list_directory('.')
-    print(f"Recurively counting files in {abspath('../../')}")
-    iterate_files('../../')
+    print(f"\nRecurively counting files in {abspath('../../')}")
+    num_py_files = 0
+    for file_entry in iterate_files('../../'):
+        if file_entry.endswith('.py'):
+            num_py_files += 1
+    print(f"\t{num_py_files} python files found "
+          f"in {abspath('../../')}")
