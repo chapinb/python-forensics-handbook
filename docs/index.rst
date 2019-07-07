@@ -14,6 +14,7 @@ A guide for developing Python scripts in DFIR
    :caption: Table of Contents:
 
    section1
+   section2
 
 Handbook Sections
 ==============================

@@ -34,12 +34,14 @@ Section 2 - Registry Hives with YARP
 ------------------------------------
 
 * Using yarp to open a single hive
-    - Opening a hive and confirming it's the one you want to view
-* Read key information/metadata
-    - USB Devices
-* Read value information/metadata
-    - USB Devices
-* YARP hive file + transaction logs/other registry fragments
+    - Opening a hive and recovering data available in transaction logs
+* Parse registry hive keys and values
+    - Building off our prior code to parse specific artifacts from an
+      NTUSER.DAT hive, including string and binary values. Uses classes in a
+      manner that is very flexible and permits extending functionality as
+      needed with minimal effort.
+* Searching for a pattern across hive keys and values.
+    - Looking for a provided pattern across the entire hive.
 
 Section 3 - Event Logs
 ----------------------

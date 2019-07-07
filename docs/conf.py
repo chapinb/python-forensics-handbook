@@ -31,7 +31,6 @@ version = datetime.datetime.now().strftime('%Y%m%d')
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    # 'sphinx.ext.viewcode',
     'sphinx.ext.autodoc', 'sphinx.ext.napoleon'
 ]
 
@@ -52,18 +51,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # html_theme = 'alabaster'
 
 html_theme = 'sphinx_rtd_theme'
-
-# import cakephp_theme
-# html_theme_path = [cakephp_theme.get_html_theme_path()]
-# html_theme = 'cakephp_theme'
-# extensions.append('cakephp_theme')
-# html_context = {
-#     'maintainer': 'Chapin Bryce',
-#     'project_pretty_name': 'Python Forensics Handbook',
-#     'projects': {
-#         'Python Forensics Handbook': 'https://chapinb.github.io/python-forensics-handbook/'
-#     }
-# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
