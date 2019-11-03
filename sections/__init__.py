@@ -9,7 +9,10 @@ this outline is the main launching point to find the correct page
 containing the code block you wish to reference.
 
 Please feel free to contribute your own sections with the snippets that have
-worked well for you, even if a similar section already exists.
+worked well for you, even if a similar section already exists. This handbook
+is hosted on GitHub at https://github.com/chapinb/python-forensics-handbook and
+available to read online at https://chapinb.com/python-forensics-handbook.
+Please consider submitting a pull request with your additions!
 
 Section 1 - Essential Script Elements
 -------------------------------------
