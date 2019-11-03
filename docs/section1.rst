@@ -14,12 +14,17 @@ Section 1.2 - Logging Example
 .. automodule:: sections.section_01.logging_example
    :members:
 
-Section 1.3 - CSV Example
+Section 1.3 - Open Files
+--------------------------------
+.. automodule:: sections.section_01.open_files
+   :members:
+
+Section 1.4 - CSV Example
 --------------------------------
 .. automodule:: sections.section_01.csv_example
    :members:
 
-Section 1.4 - Directory Recursion
+Section 1.5 - Directory Recursion
 ---------------------------------
 .. automodule:: sections.section_01.recursion_example
    :members:
