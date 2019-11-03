@@ -118,7 +118,6 @@ class NTUSER(RegistryBase):
             mp_data['name'] = mp.name().replace('#', '\\')
             mp_data['values'] = {x.name(): x.data() for x in mp.values()}
             mp_data['last_written'] = mp.last_written_timestamp()
-            import pdb; pdb.set_trace()
             yield mp_data
 
     def parse_office_versions(self):
