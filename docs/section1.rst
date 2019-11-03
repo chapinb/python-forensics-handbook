@@ -15,7 +15,7 @@ Section 1.2 - Logging Example
    :members:
 
 Section 1.3 - Open Files
---------------------------------
+------------------------
 .. automodule:: sections.section_01.open_files
    :members:
 

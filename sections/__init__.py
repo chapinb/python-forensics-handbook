@@ -20,6 +20,8 @@ projects to allow for uniformity.
 * Logging
     - Writing status and error messages to the console and
       log file
+* Open Files
+    - Read text files with varying UTF encodings.
 * CSV Generation
     - For better or worse, CSV reports are very common in DFIR
       and this code block covers several methods for

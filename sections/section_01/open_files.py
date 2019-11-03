@@ -1,8 +1,8 @@
-"""Example for writing datasets into CSV files.
+"""Example for reading data from encoded text files.
 
-Demonstrates source datasets comprised of lists of dictionaries
-and lists of lists as separate functions. Example data is
-provided in line and will generate two identical CSVs as output.
+Demonstrates how to handle setting the proper encoding for
+UTF-8, UTF-16-LE, and UTF-16-BE with the ability to easily
+expand to support checking other file magic values/signatures.
 
 Example Usage:
 
