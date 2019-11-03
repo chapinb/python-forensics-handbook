@@ -62,7 +62,10 @@ from datetime import datetime, timedelta
 import struct
 
 import yarp
-from sections.section_02.yarp_base import RegistryBase
+try:
+    from sections.section_02.yarp_base import RegistryBase
+except ImportError:
+    from yarp_base import RegistryBase
 
 """
 Copyright 2019 Chapin Bryce
@@ -115,6 +118,7 @@ class NTUSER(RegistryBase):
             mp_data['name'] = mp.name().replace('#', '\\')
             mp_data['values'] = {x.name(): x.data() for x in mp.values()}
             mp_data['last_written'] = mp.last_written_timestamp()
+            import pdb; pdb.set_trace()
             yield mp_data
 
     def parse_office_versions(self):

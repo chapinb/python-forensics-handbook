@@ -67,7 +67,7 @@ __docs__ = [
 
 
 def open_file(input_file):
-    """Writes a list of dictionaries to a CSV file.
+    """Opens an encoded text file and prints the contents
 
     Arguments:
         input_file (str): Path to file to open
