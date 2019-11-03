@@ -8,6 +8,9 @@ This handbook is not intended to be read in order - if anything
 this outline is the main launching point to find the correct page
 containing the code block you wish to reference.
 
+Please feel free to contribute your own sections with the snippets that have
+worked well for you, even if a similar section already exists.
+
 Section 1 - Essential Script Elements
 -------------------------------------
 
@@ -50,17 +53,22 @@ Section 3 - Event Logs
 
 * Using python-evtx
     - Opening evtx files
-* Counts/Metadata about EVTX container
 * Parsing Logins (with types, levels, privs)
+    - Parse out the commonly investigated 4624/4672 events
 * Parsing Logouts (durations)
+    - Parse 4624/4634 events to get information on user sessions
 * Parsing Powershell decoding
+    - Reassemble PowerShell strings in events and decode commands
 
 Section 4 - Text logs
 ---------------------
 
 * Handling IIS Logs
+    - Parse common fields in IIS logs into a report
 * Handling Syslog
+    - Parse common syslog formats into a report
 * Adding in GeoIP
+    - Function to add GeoIP recognition
 
 Section 5 - API calls & JSON data
 ---------------------------------

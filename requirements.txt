@@ -1,1 +1,2 @@
 -e git+https://github.com/msuhanov/yarp@1.0.28#egg=yarp
+python-evtx==0.6.1
