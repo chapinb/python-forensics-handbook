@@ -30,6 +30,7 @@ Docstring References
 """
 
 from io import open
+import os
 
 """
 Copyright 2019 Chapin Bryce
@@ -58,7 +59,7 @@ DEALINGS IN THE SOFTWARE.
 __author__ = 'Chapin Bryce'
 __date__ = 20191103
 __license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Sample script to write to CSV files.'''
+__desc__ = '''Sample script to read encoded text files.'''
 __docs__ = [
     'https://docs.python.org/3/library/csv.html',
     'https://docs.python.org/3/library/os.html'
@@ -86,4 +87,14 @@ def open_file(input_file):
 
             print(line)
 
-open_file('list_test.csv')
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(
+        description=__desc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        epilog=f"Built by {__author__}, v.{__date__}"
+    )
+    parser.add_argument('INPUT_FILE', help="Text file to read")
+    args = parser.parse_args()
+
+    open_file(args.INPUT_FILE)
