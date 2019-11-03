@@ -1,4 +1,9 @@
-"""This handbook has 7 sections covering common tasks for developing
+"""
+IN DEVELOPMENT - More sections will release over the coming weeks/months/as
+time permits. Feel free to contribute as you have an idea or time to assist,
+otherwise stay tuned!
+
+This handbook has 7 sections covering common tasks for developing
 Python scripts for use in DFIR. Each section contains short,
 portable code blocks that can drop into a new script with minimal
 tweaking. This way, you can quickly build out your custom script
