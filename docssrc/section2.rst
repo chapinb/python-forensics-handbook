@@ -13,3 +13,10 @@ Section 2.2 - Parsing Hive Values
 ----------------------------------
 .. automodule:: sections.section_02.yarp_ntuser
    :members:
+
+Indices and tables
+--------------------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
