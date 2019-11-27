@@ -16,6 +16,7 @@ A guide for developing Python scripts in DFIR
    section1
    section2
    section3
+   section6
 
 Handbook Sections
 ==============================
