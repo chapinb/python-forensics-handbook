@@ -1,5 +1,4 @@
-"""Example for opening and exploring Sqlite databased 
-for your command line utility.
+"""Example for opening and exploring Sqlite database.
 
 Example Usage:
 
@@ -82,7 +81,11 @@ def list_tables(conn):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description=__desc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        epilog=f"Built by {__author__}, v.{__date__}"
+    )
     parser.add_argument("db", help="path to the database to read")
     args = parser.parse_args()
     conn = open_sqlite(args.db)
