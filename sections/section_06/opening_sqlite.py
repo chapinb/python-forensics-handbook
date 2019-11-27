@@ -1,4 +1,4 @@
-"""Example for opening and exploring Sqlite database.
+"""Example for opening and exploring Sqlite databases.
 
 Example Usage:
 
