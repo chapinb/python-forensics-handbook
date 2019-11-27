@@ -35,4 +35,4 @@ goto end
 popd
 
 REM copy HTML to docs folder
-robocopy _build\html ..\docs /S /E
+robocopy _build\html ..\docs /S /E /NFL /NDL /NJH /NJS
