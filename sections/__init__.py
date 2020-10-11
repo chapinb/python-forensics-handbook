@@ -61,12 +61,9 @@ Section 3 - Event Logs
 
 * Using python-evtx
     - Opening evtx files
+    - Iterating over events
 * Parsing Logins (with types, levels, privs)
     - Parse out the commonly investigated 4624/4672 events
-* Parsing Logouts (durations)
-    - Parse 4624/4634 events to get information on user sessions
-* Parsing Powershell decoding
-    - Reassemble PowerShell strings in events and decode commands
 
 Section 4 - Text logs
 ---------------------
