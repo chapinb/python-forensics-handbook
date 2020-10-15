@@ -1,2 +1,4 @@
 alabaster==0.7.12
-Sphinx==2.0.1
+Sphinx==3.2.1
+sphinx-rtd-theme==0.5.0
+black==20.8b1
