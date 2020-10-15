@@ -43,6 +43,7 @@ jobs:
           args: zip -qq -r pyforhandbook_html_docs_${{ env.RELEASE_VERSION }}.zip ./doc_src/_build/html
 
       - name: Create release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
