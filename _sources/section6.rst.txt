@@ -6,7 +6,7 @@ Section 6 - Sqlite & MacOS/Mobile/Browsers
 
 Section 6.1 - Opening Sqlite
 --------------------------------
-.. automodule:: sections.section_06.opening_sqlite
+.. automodule:: pyforhandbook.section_06.opening_sqlite
    :members:
 
 Indices and tables

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Section 2 - Registry Parsing &mdash; Python Forensics Handbook 20201015 documentation</title>
+  <title>Section 2 - Registry Parsing &mdash; Python Forensics Handbook 0.1.0 documentation</title>
   
 
   
@@ -101,12 +101,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Section 2 - Registry Parsing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-sections.section_02.yarp_base">Section 2.1 - Opening a Hive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_02.yarp_base">Section 2.1 - Opening a Hive</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#opening-a-registry-hive">Opening a Registry Hive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docstring-references">Docstring References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-sections.section_02.yarp_ntuser">Section 2.2 - Parsing Hive Values</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_02.yarp_ntuser">Section 2.2 - Parsing Hive Values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-hive-specific-parser">Creating a Hive Specific Parser</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-hive-string-values">Reading Hive String Values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-hive-binary-values">Reading Hive Binary Values</a></li>
@@ -187,8 +187,8 @@
 <h1>Section 2 - Registry Parsing<a class="headerlink" href="#section-2-registry-parsing" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-sections.section_02.yarp_base">
-<span id="section-2-1-opening-a-hive"></span><h2>Section 2.1 - Opening a Hive<a class="headerlink" href="#module-sections.section_02.yarp_base" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.section_02.yarp_base">
+<span id="section-2-1-opening-a-hive"></span><h2>Section 2.1 - Opening a Hive<a class="headerlink" href="#module-pyforhandbook.section_02.yarp_base" title="Permalink to this headline">¶</a></h2>
 <p>Using the <cite>yarp</cite> library to open Windows registry hives using a class
 structure that is very portable and flexible.</p>
 <p>Example Usage:</p>
@@ -251,13 +251,13 @@ of the primary hive and attempted recovery of the transaction logs.</p>
 <div class="section" id="docstring-references">
 <h3>Docstring References<a class="headerlink" href="#docstring-references" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="sections.section_02.yarp_base.RegistryBase">
-<em class="property">class </em><code class="sig-name descname">RegistryBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_base.RegistryBase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_base.RegistryBase">
+<em class="property">class </em><code class="sig-name descname">RegistryBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_base.RegistryBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class containing common registry parsing code. Will open a hive
 and attempt recovery using available transaction logs</p>
 <dl class="py method">
-<dt id="sections.section_02.yarp_base.RegistryBase.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_base.RegistryBase.close" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_base.RegistryBase.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_base.RegistryBase.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Properly close a hive.</p>
 </dd></dl>
 
@@ -265,8 +265,8 @@ and attempt recovery using available transaction logs</p>
 
 </div>
 </div>
-<div class="section" id="module-sections.section_02.yarp_ntuser">
-<span id="section-2-2-parsing-hive-values"></span><h2>Section 2.2 - Parsing Hive Values<a class="headerlink" href="#module-sections.section_02.yarp_ntuser" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.section_02.yarp_ntuser">
+<span id="section-2-2-parsing-hive-values"></span><h2>Section 2.2 - Parsing Hive Values<a class="headerlink" href="#module-pyforhandbook.section_02.yarp_ntuser" title="Permalink to this headline">¶</a></h2>
 <p>Using the <cite>yarp</cite> library to parse NTUSER.DAT Windows registry hives
 using a class structure that is very portable and flexible. Parses the
 MountPoints2 and TrustRecords keys for with string and binary values.</p>
@@ -352,18 +352,18 @@ to be displayed.</p>
 <div class="section" id="id1">
 <h3>Docstring References<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="sections.section_02.yarp_ntuser.NTUSER">
-<em class="property">class </em><code class="sig-name descname">NTUSER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_ntuser.NTUSER" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER">
+<em class="property">class </em><code class="sig-name descname">NTUSER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to handle the parsing of the NTUSER.DAT hive.</p>
 <dl class="py method">
-<dt id="sections.section_02.yarp_ntuser.NTUSER.parse_mountpoints2">
-<code class="sig-name descname">parse_mountpoints2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_ntuser.NTUSER.parse_mountpoints2" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_mountpoints2">
+<code class="sig-name descname">parse_mountpoints2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_mountpoints2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demonstration of parsing values from a key by path.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="sections.section_02.yarp_ntuser.NTUSER.parse_office_versions">
-<code class="sig-name descname">parse_office_versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_ntuser.NTUSER.parse_office_versions" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_office_versions">
+<code class="sig-name descname">parse_office_versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_office_versions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get Office versions within an open Registry hive.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Yields</dt>
@@ -373,8 +373,8 @@ to be displayed.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="sections.section_02.yarp_ntuser.NTUSER.parse_trustrecords">
-<code class="sig-name descname">parse_trustrecords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sections.section_02.yarp_ntuser.NTUSER.parse_trustrecords" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_trustrecords">
+<code class="sig-name descname">parse_trustrecords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_trustrecords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demonstration of parsing binary values within a key.</p>
 </dd></dl>
 
@@ -413,7 +413,7 @@ to be displayed.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2019, Chapin Bryce
+        &copy; Copyright 2020, Chapin Bryce
 
     </p>
   </div>

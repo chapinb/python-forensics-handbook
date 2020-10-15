@@ -4,19 +4,9 @@ Section 3 - Windows Event Log Parsing
    :maxdepth: 2
    :caption: Contents:
 
-Section 3.1 - Opening an Event Log
+Section 3.1 - Using python-evtx
 ----------------------------------
-.. automodule:: sections.section_03.open_evtx
-   :members:
-
-Section 3.2 - Iterate over events
----------------------------------
-.. automodule:: sections.section_03.get_events
-   :members:
-
-Section 3.3 - Filter event data
--------------------------------
-.. automodule:: sections.section_03.filter_events_json
+.. automodule:: pyforhandbook.section_03.using_python_evtx
    :members:
 
 Indices and tables
