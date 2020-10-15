@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     tags:
-      - latest
+      - 'v*'
 
 jobs:
   deploy:
@@ -47,9 +47,24 @@ jobs:
       - name: Build docs
         run: (cd doc_src && make html)
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Compress docs
+        uses: montudor/action-zip@0.1.0
         with:
+          args: zip -qq -r docs.zip ./doc_src/_build/html
+
+      - name: Upload docs
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.ref }}
+          path: docs.zip
+
+      - name: Create release
+        uses: actions/create-release@v1
+        env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc_src/_build/html
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
 

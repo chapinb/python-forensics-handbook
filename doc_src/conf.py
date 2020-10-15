@@ -21,7 +21,7 @@ author = version_info.__author__
 
 # The full version, including alpha/beta/rc tags
 release = version_info.__version__
-version = datetime.datetime.now().strftime('%Y%m%d')
+version = version_info.__version__
 
 # -- General configuration ---------------------------------------------------
 
