@@ -29,21 +29,18 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/*requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
         run: python3 -m pip install -r ./requirements.txt
 
-      - name: Install dev dependencies
-        run: python3 -m pip install -r ./dev_requirements.txt
-
       - name: Build docs
-        run: (cd docssrc && make html)
+        run: (cd doc_src && make html)
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./doc_src/_build/html

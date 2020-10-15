@@ -34,7 +34,7 @@ generate the header information. The latter option may produce
 a new order each iteration and is not prefered if you can
 determine the headers in advance.
 
-.. literalinclude:: ../sections/section_01/csv_example.py
+.. literalinclude:: ../pyforhandbook/section_01/csv_example.py
     :pyobject: write_csv_dicts
 
 List of ordered lists to CSV
@@ -58,7 +58,7 @@ information. Unlike the dictionary option, you cannot filter
 column data by adjusting the provided headers, you must write all
 columns to the CSV.
 
-.. literalinclude:: ../sections/section_01/csv_example.py
+.. literalinclude:: ../pyforhandbook/section_01/csv_example.py
     :pyobject: write_csv_lists
 
 
@@ -138,11 +138,10 @@ def write_csv_lists(outfile, data, headers=None):
         # Write only provided headers, ignore others
         csvfile = csv.writer(open_file)
         for count, entry in enumerate(data):
-            if count == 0:
+            if count == 0 and headers:
                 # If headers are defined, write them, otherwise
                 # continue as they will be written anyways
-                if headers:
-                    csvfile.writerow(headers)
+                csvfile.writerow(headers)
             csvfile.writerow(entry)
 
 sample_dict_data = [

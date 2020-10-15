@@ -10,19 +10,17 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
 import datetime
-sys.path.insert(0, os.path.abspath('..'))
+from pyforhandbook import version as version_info
 
 # -- Project information -----------------------------------------------------
 
 project = 'Python Forensics Handbook'
-copyright = '2019, Chapin Bryce'
-author = 'Chapin Bryce'
+copyright = version_info.__copyright__
+author = version_info.__author__
 
 # The full version, including alpha/beta/rc tags
-release = datetime.datetime.now().strftime('%Y%m%d')
+release = version_info.__version__
 version = datetime.datetime.now().strftime('%Y%m%d')
 
 # -- General configuration ---------------------------------------------------

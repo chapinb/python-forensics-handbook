@@ -20,7 +20,7 @@ A guide for developing Python scripts in DFIR
 
 Handbook Sections
 ==============================
-.. automodule:: sections
+.. automodule:: pyforhandbook
    :members:
 
 Indices and tables

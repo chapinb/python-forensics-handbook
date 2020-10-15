@@ -20,7 +20,7 @@ set different logging levels for the two handlers - generally you
 keep debugging information in the log file while writing more
 critical messages to the console in STDERR.
 
-.. literalinclude:: ../sections/section_01/logging_example.py
+.. literalinclude:: ../pyforhandbook/section_01/logging_example.py
     :pyobject: setup_logging
 
 Docstring References

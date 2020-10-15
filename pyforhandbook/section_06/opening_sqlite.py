@@ -17,7 +17,7 @@ This function shows an example of opening a Sqlite database with Python.
 Additional information regarding Sqlite modules can be
 seen at https://docs.python.org/3/library/sqlite3.html.
 
-.. literalinclude:: ../sections/section_06/opening_sqlite.py
+.. literalinclude:: ../pyforhandbook/section_06/opening_sqlite.py
     :pyobject: open_sqlite
 
 Listing Tables configuration
@@ -25,7 +25,7 @@ Listing Tables configuration
 
 This function shows an example of listing available tables in an opened Sqlite database.
 
-.. literalinclude:: ../sections/section_06/opening_sqlite.py
+.. literalinclude:: ../pyforhandbook/section_06/opening_sqlite.py
     :pyobject: list_tables
 """
 import argparse

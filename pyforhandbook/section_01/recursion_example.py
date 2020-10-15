@@ -19,7 +19,7 @@ folders within a single directory. From here you can further
 interact with individual files and folders or iterate recursively
 by calling the function on identified subdirectories.
 
-.. literalinclude:: ../sections/section_01/recursion_example.py
+.. literalinclude:: ../pyforhandbook/section_01/recursion_example.py
     :pyobject: list_directory
 
 List a directory recursively
@@ -33,7 +33,7 @@ handling the processing of files. This sample shows a method of
 counting the number of files, subdirectories, and files ending in
 ".py" as an example.
 
-.. literalinclude:: ../sections/section_01/recursion_example.py
+.. literalinclude:: ../pyforhandbook/section_01/recursion_example.py
     :pyobject: iterate_files
 
 """

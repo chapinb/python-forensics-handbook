@@ -19,7 +19,7 @@ how to set default values and boolean arguments. the ``argparse``
 module has many more features documented at
 https://docs.python.org/3/library/argparse.html
 
-.. literalinclude:: ../sections/section_01/argparse_example.py
+.. literalinclude:: ../pyforhandbook/section_01/argparse_example.py
     :pyobject: setup_argparse
 
 """

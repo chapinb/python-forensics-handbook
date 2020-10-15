@@ -21,7 +21,7 @@ leverage any available transaction logs to include additional information
 otherwise available on the Window's system. This class handles both the opening
 of the primary hive and attempted recovery of the transaction logs.
 
-.. literalinclude:: ../sections/section_02/yarp_base.py
+.. literalinclude:: ../pyforhandbook/section_02/yarp_base.py
     :pyobject: RegistryBase
 
 Docstring References

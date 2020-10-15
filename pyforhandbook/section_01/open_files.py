@@ -22,7 +22,7 @@ magic value/file signature, this low-tech method will help with parsing a
 collection of files that may be UTF-8, UTF-16-LE, and UTF-16-BE, three very
 common text file encodings. Feel free to build and share on this.
 
-.. literalinclude:: ../sections/section_01/open_files.py
+.. literalinclude:: ../pyforhandbook/section_01/open_files.py
     :pyobject: open_file
 
 Docstring References

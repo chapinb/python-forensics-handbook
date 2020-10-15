@@ -1,7 +1,7 @@
 # Exclude locally built docs
 docs/
 .vscode/
-docssrc/_build/
+doc_src/_build/
 .idea/
 
 # Byte-compiled / optimized / DLL files

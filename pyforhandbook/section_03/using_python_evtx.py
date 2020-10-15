@@ -1,4 +1,4 @@
-"""Example for opening EVTX files.
+"""Example for opening EVTX files, iterating over events, and filtering events.
 
 Demonstrates how to open an EVTX file and get basic details about the event log.
 This section makes use of python-evtx, a python library for reading event log
@@ -9,7 +9,7 @@ add snippets that showcase how to make use of them in reading EVTX files.
 
 Example Usage:
 
-    ``$ python open_evtx.py System.evtx``
+    ``$ python using_python_evtx.py System.evtx``
 
 References:
 
@@ -22,7 +22,7 @@ Open Windows Event Logs (EVTX)
 This function shows an example of opening an EVTX file and parsing out several
 header metadata parameters about the file.
 
-.. literalinclude:: ../sections/section_03/open_evtx.py
+.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
     :pyobject: open_evtx
 
 Iterate over record XML data (EVTX)
@@ -38,7 +38,7 @@ which will then call the ``.lxml()`` method on the individual event record.
 This requires the installation of the lxml Library, as it returns a lxml.etree
 object that you can interact with.
 
-.. literalinclude:: ../sections/section_03/open_evtx.py
+.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
     :pyobject: get_events
 
 Filtering records within events logs
@@ -55,7 +55,7 @@ filters, and return values. Some examples include:
 - Identify PowerShell events and expose arguments for further processing
   (ie. Base64 decoding, shellcode analysis)
 
-.. literalinclude:: ../sections/section_03/open_evtx.py
+.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
     :pyobject: filter_events_json
 
 Docstring References

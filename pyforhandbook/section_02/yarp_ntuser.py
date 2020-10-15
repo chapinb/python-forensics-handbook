@@ -22,7 +22,7 @@ NTUSER.DAT files, though could get more specific on Windows versions, etc. In
 this class we store a few useful details including fixed values used by other
 methods and metadata about the class.
 
-.. literalinclude:: ../sections/section_02/yarp_ntuser.py
+.. literalinclude:: ../pyforhandbook/section_02/yarp_ntuser.py
     :pyobject: NTUSER.__init__
 
 Reading Hive String Values
@@ -36,7 +36,7 @@ continue to recurse on subkeys here. Instead we return this cursory information
 for the caller to display as they wish. Since the values within MountPoints2
 store string data, we don't need to perform further parsing of the record.
 
-.. literalinclude:: ../sections/section_02/yarp_ntuser.py
+.. literalinclude:: ../pyforhandbook/section_02/yarp_ntuser.py
     :pyobject: NTUSER.parse_mountpoints2
 
 Reading Hive Binary Values
@@ -51,7 +51,7 @@ method) using Struct to extract a timestamp and integer marking whether a
 trusted macro was used. These parsed attributes are then returned to the caller
 to be displayed.
 
-.. literalinclude:: ../sections/section_02/yarp_ntuser.py
+.. literalinclude:: ../pyforhandbook/section_02/yarp_ntuser.py
     :pyobject: NTUSER.parse_trustrecords
 
 Docstring References
@@ -63,7 +63,7 @@ import struct
 
 import yarp
 try:
-    from sections.section_02.yarp_base import RegistryBase
+    from pyforhandbook.section_02.yarp_base import RegistryBase
 except ImportError:
     from yarp_base import RegistryBase
 
@@ -131,9 +131,9 @@ class NTUSER(RegistryBase):
             key_name = subkey.name()
             is_ver_num = False
             try:
-                float_val = float(key_name)
+                _ = float(key_name)
                 is_ver_num = True
-            except ValueError as e:
+            except ValueError:
                 is_ver_num = False
 
             if is_ver_num:
