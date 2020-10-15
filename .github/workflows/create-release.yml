@@ -34,9 +34,7 @@ jobs:
         run: (cd doc_src && make html)
 
       - name: Compress docs
-        uses: montudor/action-zip@v0.1.0
-        with:
-          args: (cd ./doc_src/_build/ && mv html pyforhandbook_html_docs_${{ env.RELEASE_VERSION }} && zip -qq -r ../../pyforhandbook_html_docs_${{ env.RELEASE_VERSION }}.zip pyforhandbook_html_docs_${{ env.RELEASE_VERSION }})
+        run: (cd ./doc_src/_build/ && mv html pyforhandbook_html_docs_${{ env.RELEASE_VERSION }} && zip -qq -r ../../pyforhandbook_html_docs_${{ env.RELEASE_VERSION }}.zip pyforhandbook_html_docs_${{ env.RELEASE_VERSION }})
 
       - name: Create release
         id: create_release
