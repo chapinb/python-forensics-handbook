@@ -48,7 +48,7 @@ jobs:
         run: (cd doc_src && make html)
 
       - name: Compress docs
-        uses: montudor/action-zip@0.1.0
+        uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r docs.zip ./doc_src/_build/html
 
