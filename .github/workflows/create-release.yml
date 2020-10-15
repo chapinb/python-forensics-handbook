@@ -54,8 +54,9 @@ jobs:
 
       - name: Upload docs to release
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ github.ref }}
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: pyforhandbook_html_docs_${{ env.RELEASE_VERSION }}.zip
           asset_name: pyforhandbook_html_docs_${{ env.RELEASE_VERSION }}.zip
