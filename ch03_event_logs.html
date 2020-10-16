@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Section 3 - Windows Event Log Parsing &mdash; Python Forensics Handbook 0.1.0 documentation</title>
+  <title>Chapter 3 - Windows Event Log Parsing &mdash; Python Forensics Handbook 0.1.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Section 6 - Sqlite &amp; MacOS/Mobile/Browsers" href="section6.html" />
-    <link rel="prev" title="Section 2 - Registry Parsing" href="section2.html" />
+    <link rel="next" title="Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers" href="ch06_databases.html" />
+    <link rel="prev" title="Chapter 2 - Registry Parsing" href="ch02_registry.html" />
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17386833-12"></script>
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -99,10 +99,10 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section2.html">Section 2 - Registry Parsing</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Section 3 - Windows Event Log Parsing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_03.using_python_evtx">Section 3.1 - Using python-evtx</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="ch01_essentials.html">Chapter 1 - Essential Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_registry.html">Chapter 2 - Registry Parsing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 3 - Windows Event Log Parsing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch03_event_logs.using_python_evtx">Section 3.1 - Using python-evtx</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#open-windows-event-logs-evtx">Open Windows Event Logs (EVTX)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iterate-over-record-xml-data-evtx">Iterate over record XML data (EVTX)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filtering-records-within-events-logs">Filtering records within events logs</a></li>
@@ -112,7 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="section6.html">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_databases.html">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
 </ul>
 
             
@@ -159,13 +159,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Section 3 - Windows Event Log Parsing</li>
+      <li>Chapter 3 - Windows Event Log Parsing</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/section3.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ch03_event_logs.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,12 +178,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="section-3-windows-event-log-parsing">
-<h1>Section 3 - Windows Event Log Parsing<a class="headerlink" href="#section-3-windows-event-log-parsing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-3-windows-event-log-parsing">
+<h1>Chapter 3 - Windows Event Log Parsing<a class="headerlink" href="#chapter-3-windows-event-log-parsing" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-pyforhandbook.section_03.using_python_evtx">
-<span id="section-3-1-using-python-evtx"></span><h2>Section 3.1 - Using python-evtx<a class="headerlink" href="#module-pyforhandbook.section_03.using_python_evtx" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch03_event_logs.using_python_evtx">
+<span id="section-3-1-using-python-evtx"></span><h2>Section 3.1 - Using python-evtx<a class="headerlink" href="#module-pyforhandbook.ch03_event_logs.using_python_evtx" title="Permalink to this headline">¶</a></h2>
 <p>Example for opening EVTX files, iterating over events, and filtering events.</p>
 <p>Demonstrates how to open an EVTX file and get basic details about the event log.
 This section makes use of python-evtx, a python library for reading event log
@@ -220,13 +220,15 @@ header metadata parameters about the file.</p>
 
     <span class="k">with</span> <span class="n">evtx</span><span class="o">.</span><span class="n">Evtx</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_log</span><span class="p">:</span>
         <span class="n">header</span> <span class="o">=</span> <span class="n">open_log</span><span class="o">.</span><span class="n">get_file_header</span><span class="p">()</span>
-        <span class="n">properties</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
-            <span class="p">(</span><span class="s1">&#39;major_version&#39;</span><span class="p">,</span> <span class="s1">&#39;File version (major)&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#39;minor_version&#39;</span><span class="p">,</span> <span class="s1">&#39;File version (minor)&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#39;is_dirty&#39;</span><span class="p">,</span> <span class="s1">&#39;File is ditry&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#39;is_full&#39;</span><span class="p">,</span> <span class="s1">&#39;File is full&#39;</span><span class="p">),</span>
-            <span class="p">(</span><span class="s1">&#39;next_record_number&#39;</span><span class="p">,</span> <span class="s1">&#39;Next record number&#39;</span><span class="p">)</span>
-        <span class="p">])</span>
+        <span class="n">properties</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;major_version&quot;</span><span class="p">,</span> <span class="s2">&quot;File version (major)&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;minor_version&quot;</span><span class="p">,</span> <span class="s2">&quot;File version (minor)&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;is_dirty&quot;</span><span class="p">,</span> <span class="s2">&quot;File is dirty&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;is_full&quot;</span><span class="p">,</span> <span class="s2">&quot;File is full&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;next_record_number&quot;</span><span class="p">,</span> <span class="s2">&quot;Next record number&quot;</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">properties</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">key</span><span class="p">)()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -270,7 +272,7 @@ object that you can interact with.</p>
 </div>
 <div class="section" id="filtering-records-within-events-logs">
 <h3>Filtering records within events logs<a class="headerlink" href="#filtering-records-within-events-logs" title="Permalink to this headline">¶</a></h3>
-<p>Now that we have <a class="reference internal" href="#pyforhandbook.section_03.using_python_evtx.get_events" title="pyforhandbook.section_03.using_python_evtx.get_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_events()</span></code></a>, we can begin to perform operations on
+<p>Now that we have <a class="reference internal" href="#pyforhandbook.ch03_event_logs.using_python_evtx.get_events" title="pyforhandbook.ch03_event_logs.using_python_evtx.get_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_events()</span></code></a>, we can begin to perform operations on
 the newly accessible data. In this function, we extract information from the
 LXML object, and use that to filter results based on Event ID and other fields
 within the results. You can easily extend this to support other fields,
@@ -320,10 +322,10 @@ then calculating the session durations</p></li>
             <span class="n">event_data</span> <span class="o">=</span> <span class="n">evt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EventData&quot;</span><span class="p">,</span> <span class="n">evt</span><span class="o">.</span><span class="n">nsmap</span><span class="p">)</span>
             <span class="n">json_data</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">event_data</span><span class="o">.</span><span class="n">getchildren</span><span class="p">():</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
                     <span class="c1"># If we don&#39;t have a specified field filter list, print all</span>
                     <span class="c1"># Otherwise filter for only those fields within the list</span>
-                    <span class="n">json_data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">text</span>
+                    <span class="n">json_data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">text</span>
 
             <span class="k">yield</span> <span class="n">json_data</span>
 </pre></div>
@@ -332,8 +334,8 @@ then calculating the session durations</p></li>
 <div class="section" id="docstring-references">
 <h3>Docstring References<a class="headerlink" href="#docstring-references" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
-<dt id="pyforhandbook.section_03.using_python_evtx.filter_events_json">
-<code class="sig-name descname">filter_events_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event_data</span></em>, <em class="sig-param"><span class="n">event_ids</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_03.using_python_evtx.filter_events_json" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch03_event_logs.using_python_evtx.filter_events_json">
+<code class="sig-name descname">filter_events_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event_data</span></em>, <em class="sig-param"><span class="n">event_ids</span></em>, <em class="sig-param"><span class="n">fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch03_event_logs.using_python_evtx.filter_events_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide events where the event id is found within the provided list
 of event ids. If found, it will return a JSON formatted object per event.</p>
 <p>If a list of fields are provided, it will filter the resulting JSON event
@@ -342,7 +344,7 @@ object to contain only those fields.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>event_data</strong> (<em>genertor</em>) – Iterable containing event data as XML. Preferably
-the result of the <a class="reference internal" href="#pyforhandbook.section_03.using_python_evtx.get_events" title="pyforhandbook.section_03.using_python_evtx.get_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_events()</span></code></a> method.</p></li>
+the result of the <a class="reference internal" href="#pyforhandbook.ch03_event_logs.using_python_evtx.get_events" title="pyforhandbook.ch03_event_logs.using_python_evtx.get_events"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_events()</span></code></a> method.</p></li>
 <li><p><strong>event_ids</strong> (<em>list</em>) – A list of event identifiers. Each element should be a
 string value, even though the identifier is an integer.</p></li>
 <li><p><strong>fields</strong> (<em>list</em>) – Collection of fields from the XML data to include in the
@@ -369,8 +371,8 @@ JSON output. Only supports top-level fields.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyforhandbook.section_03.using_python_evtx.get_events">
-<code class="sig-name descname">get_events</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em>, <em class="sig-param"><span class="n">parse_xml</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_03.using_python_evtx.get_events" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch03_event_logs.using_python_evtx.get_events">
+<code class="sig-name descname">get_events</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em>, <em class="sig-param"><span class="n">parse_xml</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch03_event_logs.using_python_evtx.get_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens a Windows Event Log and returns XML information from
 the event record.</p>
 <dl class="field-list simple">
@@ -392,8 +394,8 @@ the event record.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyforhandbook.section_03.using_python_evtx.open_evtx">
-<code class="sig-name descname">open_evtx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_03.using_python_evtx.open_evtx" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch03_event_logs.using_python_evtx.open_evtx">
+<code class="sig-name descname">open_evtx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch03_event_logs.using_python_evtx.open_evtx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens a Windows Event Log and displays common log parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -431,10 +433,10 @@ the event record.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="section6.html" class="btn btn-neutral float-right" title="Section 6 - Sqlite &amp; MacOS/Mobile/Browsers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ch06_databases.html" class="btn btn-neutral float-right" title="Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="section2.html" class="btn btn-neutral float-left" title="Section 2 - Registry Parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ch02_registry.html" class="btn btn-neutral float-left" title="Chapter 2 - Registry Parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

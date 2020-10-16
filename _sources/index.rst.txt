@@ -5,18 +5,18 @@
 
 The Python Forensics Handbook
 =============================
----------------------------------------------
-A guide for developing Python scripts in DFIR
----------------------------------------------
+--------------------------------------------------------
+A reference guide for developing Python scripts in DFIR
+--------------------------------------------------------
 
 .. toctree::
    :maxdepth: 1
    :caption: Table of Contents:
 
-   section1
-   section2
-   section3
-   section6
+   ch01_essentials
+   ch02_registry
+   ch03_event_logs
+   ch06_databases
 
 Handbook Sections
 ==============================

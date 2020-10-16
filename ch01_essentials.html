@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Section 1 - Essential Scripts &mdash; Python Forensics Handbook 0.1.0 documentation</title>
+  <title>Chapter 1 - Essential Scripts &mdash; Python Forensics Handbook 0.1.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Section 2 - Registry Parsing" href="section2.html" />
+    <link rel="next" title="Chapter 2 - Registry Parsing" href="ch02_registry.html" />
     <link rel="prev" title="The Python Forensics Handbook" href="index.html" />
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -99,28 +99,28 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Section 1 - Essential Scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_01.argparse_example">Section 1.1 - Argparse Example</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 1 - Essential Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch01_essentials.argparse_example">Section 1.1 - Argparse Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#argparse-configuration">Argparse configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_01.logging_example">Section 1.2 - Logging Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch01_essentials.logging_example">Section 1.2 - Logging Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#logging-configuration">Logging configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docstring-references">Docstring References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_01.open_files">Section 1.3 - Open Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch01_essentials.open_files">Section 1.3 - Open Files</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#open-files-with-proper-encoding">Open files with proper encoding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Docstring References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_01.csv_example">Section 1.4 - CSV Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch01_essentials.csv_example">Section 1.4 - CSV Example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list-of-dictionaries-to-csv">List of dictionaries to CSV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-of-ordered-lists-to-csv">List of ordered lists to CSV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Docstring References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_01.recursion_example">Section 1.5 - Directory Recursion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch01_essentials.recursion_example">Section 1.5 - Directory Recursion</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#list-a-directory">List a directory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-a-directory-recursively">List a directory recursively</a></li>
 </ul>
@@ -128,9 +128,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="section2.html">Section 2 - Registry Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section3.html">Section 3 - Windows Event Log Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section6.html">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_registry.html">Chapter 2 - Registry Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_event_logs.html">Chapter 3 - Windows Event Log Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_databases.html">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
 </ul>
 
             
@@ -177,13 +177,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Section 1 - Essential Scripts</li>
+      <li>Chapter 1 - Essential Scripts</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/section1.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ch01_essentials.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,12 +196,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="section-1-essential-scripts">
-<h1>Section 1 - Essential Scripts<a class="headerlink" href="#section-1-essential-scripts" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-1-essential-scripts">
+<h1>Chapter 1 - Essential Scripts<a class="headerlink" href="#chapter-1-essential-scripts" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-pyforhandbook.section_01.argparse_example">
-<span id="section-1-1-argparse-example"></span><h2>Section 1.1 - Argparse Example<a class="headerlink" href="#module-pyforhandbook.section_01.argparse_example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch01_essentials.argparse_example">
+<span id="section-1-1-argparse-example"></span><h2>Section 1.1 - Argparse Example<a class="headerlink" href="#module-pyforhandbook.ch01_essentials.argparse_example" title="Permalink to this headline">¶</a></h2>
 <p>Example for setting up arguments for your command line utility.</p>
 <p>Example Usage:</p>
 <blockquote>
@@ -225,29 +225,35 @@ module has many more features documented at
     <span class="c1"># description and epilog. The `formatter_class` instructs</span>
     <span class="c1"># argparse to show default values set for parameters.</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Sample Argparse&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Sample Argparse&quot;</span><span class="p">,</span>
         <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">,</span>
-        <span class="n">epilog</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Built by </span><span class="si">{</span><span class="n">__author__</span><span class="si">}</span><span class="s2">, v.</span><span class="si">{</span><span class="n">__date__</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">epilog</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Built by </span><span class="si">{</span><span class="n">__author__</span><span class="si">}</span><span class="s2">, v.</span><span class="si">{</span><span class="n">__date__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># The simplest form of adding an argument, the name of the</span>
     <span class="c1"># parameter and a description of its form.</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;INPUT_FILE&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input file to parse&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;OUTPUT_FOLDER&#39;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Folder to store output&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;INPUT_FILE&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input file to parse&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;OUTPUT_FOLDER&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Folder to store output&quot;</span><span class="p">)</span>
 
     <span class="c1"># An optional argument with multiple methods of specifying</span>
     <span class="c1"># the parameter. Includes a default value</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--log&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to log file&quot;</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="n">PurePath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>
-            <span class="n">PurePath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.log&#39;</span><span class="p">))</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-l&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--log&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to log file&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">PurePath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>
+                <span class="n">PurePath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.log&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">),</span>
     <span class="p">)</span>
 
     <span class="c1"># An optional argument which does not accept a value, instead</span>
     <span class="c1"># just modifies functionality.</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include debug log messages&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Include debug log messages&quot;</span>
+    <span class="p">)</span>
 
     <span class="c1"># Once we&#39;ve specified our arguments we can parse them for</span>
     <span class="c1"># reference</span>
@@ -259,8 +265,8 @@ module has many more features documented at
 </div>
 </div>
 </div>
-<div class="section" id="module-pyforhandbook.section_01.logging_example">
-<span id="section-1-2-logging-example"></span><h2>Section 1.2 - Logging Example<a class="headerlink" href="#module-pyforhandbook.section_01.logging_example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch01_essentials.logging_example">
+<span id="section-1-2-logging-example"></span><h2>Section 1.2 - Logging Example<a class="headerlink" href="#module-pyforhandbook.ch01_essentials.logging_example" title="Permalink to this headline">¶</a></h2>
 <p>Example for writing logging information to the console and a
 log file.</p>
 <p>Example Usage:</p>
@@ -280,64 +286,82 @@ to write content to STDOUT uninterrupted. Additionally, you can
 set different logging levels for the two handlers - generally you
 keep debugging information in the log file while writing more
 critical messages to the console in STDERR.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Function to setup logging configuration and test it.&quot;&quot;&quot;</span>
-    <span class="c1"># Allow us to modify the `logger` variable within a function</span>
-    <span class="k">global</span> <span class="n">logger</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">(</span><span class="n">logging_obj</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to setup logging configuration and test it.</span>
 
-    <span class="c1"># Set logger object, uses module&#39;s name</span>
-    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        logging_obj: A logging instance, returned from logging.getLogger().</span>
+<span class="sd">        verbose: Whether or not to enable the debug level in STDERR output.</span>
 
-    <span class="c1"># Set default logger level to DEBUG. You can change this later</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger = logging.getLogger(name=__name__)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger = setup_logging(sample_logger)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger.debug(&quot;This is a debug message&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger.info(&quot;This is an info message&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger.warning(&quot;This is a warning message&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger.error(&quot;This is a error message&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; sample_logger.critical(&quot;This is a critical message&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging_obj</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 
-    <span class="c1"># Logging formatter. Best to keep consistent for most usecases</span>
+    <span class="c1"># Logging formatter. Best to keep consistent for most use cases</span>
     <span class="n">log_format</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
-        <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(filename)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(module)s</span><span class="s1"> &#39;</span>
-        <span class="s1">&#39;</span><span class="si">%(funcName)s</span><span class="s1"> </span><span class="si">%(lineno)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(filename)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(module)s</span><span class="s2"> &quot;</span>
+        <span class="s2">&quot;</span><span class="si">%(funcName)s</span><span class="s2"> </span><span class="si">%(lineno)d</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
 
     <span class="c1"># Setup STDERR logging, allowing you uninterrupted</span>
     <span class="c1"># STDOUT redirection</span>
     <span class="n">stderr_handle</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-    <span class="n">stderr_handle</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">stderr_handle</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stderr_handle</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
     <span class="n">stderr_handle</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">log_format</span><span class="p">)</span>
 
     <span class="c1"># Setup file logging</span>
-    <span class="n">file_handle</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;sample.log&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;sample.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
     <span class="n">file_handle</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
     <span class="n">file_handle</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">log_format</span><span class="p">)</span>
 
     <span class="c1"># Add handles</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stderr_handle</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+    <span class="n">logging_obj</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stderr_handle</span><span class="p">)</span>
+    <span class="n">logging_obj</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
 
-    <span class="c1"># Sample log messages</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug message&quot;</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info message&quot;</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is a error message&quot;</span><span class="p">)</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;This is a critical message&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">sample_function</span><span class="p">():</span>
-        <span class="sd">&quot;&quot;&quot;Sample function to demonstrate logging formatting.&quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Called from a function&quot;</span><span class="p">)</span>
-
-    <span class="n">sample_function</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">logging_obj</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="docstring-references">
 <h3>Docstring References<a class="headerlink" href="#docstring-references" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
-<dt id="pyforhandbook.section_01.logging_example.setup_logging">
-<code class="sig-name descname">setup_logging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_01.logging_example.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch01_essentials.logging_example.setup_logging">
+<code class="sig-name descname">setup_logging</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logging_obj</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.logging_example.setup_logging" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to setup logging configuration and test it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logging_obj</strong> – A logging instance, returned from logging.getLogger().</p></li>
+<li><p><strong>verbose</strong> – Whether or not to enable the debug level in STDERR output.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span> <span class="o">=</span> <span class="n">setup_logging</span><span class="p">(</span><span class="n">sample_logger</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug message&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info message&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is a error message&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;This is a critical message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 </div>
-<div class="section" id="module-pyforhandbook.section_01.open_files">
-<span id="section-1-3-open-files"></span><h2>Section 1.3 - Open Files<a class="headerlink" href="#module-pyforhandbook.section_01.open_files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch01_essentials.open_files">
+<span id="section-1-3-open-files"></span><h2>Section 1.3 - Open Files<a class="headerlink" href="#module-pyforhandbook.ch01_essentials.open_files" title="Permalink to this headline">¶</a></h2>
 <p>Example for reading data from encoded text files.</p>
 <p>Demonstrates how to handle setting the proper encoding for
 UTF-8, UTF-16-LE, and UTF-16-BE with the ability to easily
@@ -364,18 +388,17 @@ common text file encodings. Feel free to build and share on this.</p>
 <span class="sd">        input_file (str): Path to file to open</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">test_encoding</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">test_encoding</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
     <span class="n">bom</span> <span class="o">=</span> <span class="n">test_encoding</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">file_encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
-    <span class="k">if</span> <span class="n">bom</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;FEFF&#39;</span><span class="p">:</span>
-        <span class="n">file_encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-16-le&#39;</span>
-    <span class="k">elif</span> <span class="n">bom</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;FFFE&#39;</span><span class="p">:</span>
-        <span class="n">file_encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-16-be&#39;</span>
+    <span class="n">file_encoding</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+    <span class="k">if</span> <span class="n">bom</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;FEFF&quot;</span><span class="p">:</span>
+        <span class="n">file_encoding</span> <span class="o">=</span> <span class="s2">&quot;utf-16-le&quot;</span>
+    <span class="k">elif</span> <span class="n">bom</span> <span class="o">==</span> <span class="sa">b</span><span class="s2">&quot;FFFE&quot;</span><span class="p">:</span>
+        <span class="n">file_encoding</span> <span class="o">=</span> <span class="s2">&quot;utf-16-be&quot;</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">file_encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">fopen</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">raw_line</span> <span class="ow">in</span> <span class="n">fopen</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">file_encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_input_file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">raw_line</span> <span class="ow">in</span> <span class="n">open_input_file</span><span class="p">:</span>
             <span class="n">line</span> <span class="o">=</span> <span class="n">raw_line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
             <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -383,8 +406,8 @@ common text file encodings. Feel free to build and share on this.</p>
 <div class="section" id="id1">
 <h3>Docstring References<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
-<dt id="pyforhandbook.section_01.open_files.open_file">
-<code class="sig-name descname">open_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_01.open_files.open_file" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch01_essentials.open_files.open_file">
+<code class="sig-name descname">open_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.open_files.open_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens an encoded text file and prints the contents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -395,8 +418,8 @@ common text file encodings. Feel free to build and share on this.</p>
 
 </div>
 </div>
-<div class="section" id="module-pyforhandbook.section_01.csv_example">
-<span id="section-1-4-csv-example"></span><h2>Section 1.4 - CSV Example<a class="headerlink" href="#module-pyforhandbook.section_01.csv_example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch01_essentials.csv_example">
+<span id="section-1-4-csv-example"></span><h2>Section 1.4 - CSV Example<a class="headerlink" href="#module-pyforhandbook.ch01_essentials.csv_example" title="Permalink to this headline">¶</a></h2>
 <p>Example for writing datasets into CSV files.</p>
 <p>Demonstrates source datasets comprised of lists of dictionaries
 and lists of lists as separate functions. Example data is
@@ -424,7 +447,7 @@ multiple dictionaries to a CSV file. You can optionally provide
 an ordered list of headers to filter what rows to show, or let the
 function use the keys of the first dictionary in the list to
 generate the header information. The latter option may produce
-a new order each iteration and is not prefered if you can
+a new order each iteration and is not preferred if you can
 determine the headers in advance.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_csv_dicts</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Writes a list of dictionaries to a CSV file.</span>
@@ -434,18 +457,24 @@ determine the headers in advance.</p>
 <span class="sd">        data (list): List of dictionaries to write to file</span>
 <span class="sd">        headers (list): Header row to use. If empty, will use the</span>
 <span class="sd">            first dictionary in the `data` list.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; list_of_dicts = [</span>
+<span class="sd">        &gt;&gt;&gt;     {&#39;name&#39;: &#39;apple&#39;, &#39;quantity&#39;: 10, &#39;location&#39;: &#39;VT&#39;},</span>
+<span class="sd">        &gt;&gt;&gt;     {&#39;name&#39;: &#39;orange&#39;, &#39;quantity&#39;: 5, &#39;location&#39;: &#39;FL&#39;}</span>
+<span class="sd">        &gt;&gt;&gt; ]</span>
+<span class="sd">        &gt;&gt;&gt; write_csv_dicts(&#39;dict_test.csv&#39;, list_of_dicts)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">headers</span><span class="p">:</span>
         <span class="c1"># Use the first line of data</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_file</span><span class="p">:</span>
         <span class="c1"># Write only provided headers, ignore others</span>
-        <span class="n">csvfile</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">open_file</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span>
-                                 <span class="n">extrasaction</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-        <span class="n">csvfile</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
-        <span class="n">csvfile</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">csv_file</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">open_file</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">extrasaction</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        <span class="n">csv_file</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+        <span class="n">csv_file</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -474,25 +503,33 @@ columns to the CSV.</p>
 <span class="sd">        data (list): List of lists to write to file</span>
 <span class="sd">        headers (list): Header row to use. If empty, will use the</span>
 <span class="sd">            first list in the `data` list.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; fields = [&#39;name&#39;, &#39;quantity&#39;, &#39;location&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; list_of_lists = [</span>
+<span class="sd">        &gt;&gt;&gt;     [&#39;apple&#39;, 10, &#39;VT&#39;],</span>
+<span class="sd">        &gt;&gt;&gt;     [&#39;orange&#39;, 5, &#39;FL&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ]</span>
+<span class="sd">        &gt;&gt;&gt; write_csv_lists(&#39;list_test.csv&#39;, list_of_lists, headers=fields)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">open_file</span><span class="p">:</span>
         <span class="c1"># Write only provided headers, ignore others</span>
-        <span class="n">csvfile</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">open_file</span><span class="p">)</span>
+        <span class="n">csv_file</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">open_file</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">headers</span><span class="p">:</span>
                 <span class="c1"># If headers are defined, write them, otherwise</span>
                 <span class="c1"># continue as they will be written anyways</span>
-                <span class="n">csvfile</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
-            <span class="n">csvfile</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+                <span class="n">csv_file</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+            <span class="n">csv_file</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id2">
 <h3>Docstring References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
-<dt id="pyforhandbook.section_01.csv_example.write_csv_dicts">
-<code class="sig-name descname">write_csv_dicts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">headers</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_01.csv_example.write_csv_dicts" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch01_essentials.csv_example.write_csv_dicts">
+<code class="sig-name descname">write_csv_dicts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">headers</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.csv_example.write_csv_dicts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a list of dictionaries to a CSV file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -504,11 +541,19 @@ first dictionary in the <cite>data</cite> list.</p></li>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_dicts</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;VT&#39;</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;FL&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv_dicts</span><span class="p">(</span><span class="s1">&#39;dict_test.csv&#39;</span><span class="p">,</span> <span class="n">list_of_dicts</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
-<dt id="pyforhandbook.section_01.csv_example.write_csv_lists">
-<code class="sig-name descname">write_csv_lists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">headers</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_01.csv_example.write_csv_lists" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch01_essentials.csv_example.write_csv_lists">
+<code class="sig-name descname">write_csv_lists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">headers</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.csv_example.write_csv_lists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a list of lists to a CSV file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -520,12 +565,21 @@ first list in the <cite>data</cite> list.</p></li>
 </ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;VT&#39;</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;FL&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write_csv_lists</span><span class="p">(</span><span class="s1">&#39;list_test.csv&#39;</span><span class="p">,</span> <span class="n">list_of_lists</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">fields</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 </div>
-<div class="section" id="module-pyforhandbook.section_01.recursion_example">
-<span id="section-1-5-directory-recursion"></span><h2>Section 1.5 - Directory Recursion<a class="headerlink" href="#module-pyforhandbook.section_01.recursion_example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch01_essentials.recursion_example">
+<span id="section-1-5-directory-recursion"></span><h2>Section 1.5 - Directory Recursion<a class="headerlink" href="#module-pyforhandbook.ch01_essentials.recursion_example" title="Permalink to this headline">¶</a></h2>
 <p>File recursion example.</p>
 <p>Demonstration of iterating through a directory to interact with
 files.</p>
@@ -544,7 +598,16 @@ folders within a single directory. From here you can further
 interact with individual files and folders or iterate recursively
 by calling the function on identified subdirectories.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">list_directory</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;List all file and folder entries in `path`.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;List all file and folder entries in `path`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): A directory within a mounted file system. May be relative or</span>
+<span class="sd">            absolute.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; list_directory(&#39;.&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Files and folders in &#39;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;:&quot;</span><span class="p">)</span>
     <span class="c1"># Quick and easy method for listing items within a single</span>
     <span class="c1"># folder.</span>
@@ -564,6 +627,21 @@ handling the processing of files. This sample shows a method of
 counting the number of files, subdirectories, and files ending in
 “.py” as an example.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">iterate_files</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Recursively iterate over a path, findings all files within the folder</span>
+<span class="sd">    and its subdirectories.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): A directory within a mounted file system. May be relative or</span>
+<span class="sd">            absolute.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; number_of_py_files = 0</span>
+<span class="sd">        &gt;&gt;&gt; for f in iterate_files(&#39;../&#39;):</span>
+<span class="sd">        ...     if f.endswith(&#39;.py&#39;):</span>
+<span class="sd">        ...         number_of_py_files += 1</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;\t{number_of_py_files} python files found &quot;</span>
+<span class="sd">        ...      f&quot;in {os.path.abspath(&#39;../&#39;)}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Though `os.walk()` exposes a list of directories in the</span>
     <span class="c1"># current `root`, it is rarely used since we are generally</span>
     <span class="c1"># interested in the files found within the subdirectories.</span>
@@ -572,19 +650,50 @@ counting the number of files, subdirectories, and files ending in
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
         <span class="c1"># Both `dirs` and `files` are lists containing all entries</span>
         <span class="c1"># at the current `root`.</span>
-        <span class="k">for</span> <span class="n">fentry</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
             <span class="c1"># To effectively reference a file, you should include</span>
             <span class="c1"># the below line which creates a full path reference</span>
             <span class="c1"># to the specific file, regardless of how nested it is</span>
-            <span class="n">file_entry</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">fentry</span><span class="p">)</span>
             <span class="c1"># We can then hand `file_entry` off to other functions.</span>
-            <span class="k">yield</span> <span class="n">file_entry</span>
+            <span class="k">yield</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py function">
-<dt id="pyforhandbook.section_01.recursion_example.list_directory">
-<code class="sig-name descname">list_directory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_01.recursion_example.list_directory" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch01_essentials.recursion_example.iterate_files">
+<code class="sig-name descname">iterate_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.recursion_example.iterate_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively iterate over a path, findings all files within the folder
+and its subdirectories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – A directory within a mounted file system. May be relative or
+absolute.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_of_py_files</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">iterate_files</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">number_of_py_files</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">number_of_py_files</span><span class="si">}</span><span class="s2"> python files found &quot;</span>
+<span class="gp">... </span>     <span class="sa">f</span><span class="s2">&quot;in </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyforhandbook.ch01_essentials.recursion_example.list_directory">
+<code class="sig-name descname">list_directory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.recursion_example.list_directory" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all file and folder entries in <cite>path</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – A directory within a mounted file system. May be relative or
+absolute.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">list_directory</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -607,7 +716,7 @@ counting the number of files, subdirectories, and files ending in
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="section2.html" class="btn btn-neutral float-right" title="Section 2 - Registry Parsing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ch02_registry.html" class="btn btn-neutral float-right" title="Chapter 2 - Registry Parsing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="The Python Forensics Handbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

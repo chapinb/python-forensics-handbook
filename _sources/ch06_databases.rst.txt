@@ -1,4 +1,4 @@
-Section 6 - Sqlite & MacOS/Mobile/Browsers
+Chapter 6 - Sqlite & MacOS/Mobile/Browsers
 ==========================================
 .. toctree::
    :maxdepth: 2
@@ -6,7 +6,7 @@ Section 6 - Sqlite & MacOS/Mobile/Browsers
 
 Section 6.1 - Opening Sqlite
 --------------------------------
-.. automodule:: pyforhandbook.section_06.opening_sqlite
+.. automodule:: pyforhandbook.ch06_databases.opening_sqlite
    :members:
 
 Indices and tables

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Section 6 - Sqlite &amp; MacOS/Mobile/Browsers &mdash; Python Forensics Handbook 0.1.0 documentation</title>
+  <title>Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers &mdash; Python Forensics Handbook 0.1.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Section 3 - Windows Event Log Parsing" href="section3.html" />
+    <link rel="prev" title="Chapter 3 - Windows Event Log Parsing" href="ch03_event_logs.html" />
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17386833-12"></script>
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -98,11 +98,11 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section2.html">Section 2 - Registry Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section3.html">Section 3 - Windows Event Log Parsing</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_06.opening_sqlite">Section 6.1 - Opening Sqlite</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="ch01_essentials.html">Chapter 1 - Essential Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_registry.html">Chapter 2 - Registry Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_event_logs.html">Chapter 3 - Windows Event Log Parsing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch06_databases.opening_sqlite">Section 6.1 - Opening Sqlite</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#opening-sqlite-configuration">Opening Sqlite configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#listing-tables-configuration">Listing Tables configuration</a></li>
 </ul>
@@ -156,13 +156,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</li>
+      <li>Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/section6.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ch06_databases.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,12 +175,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="section-6-sqlite-macos-mobile-browsers">
-<h1>Section 6 - Sqlite &amp; MacOS/Mobile/Browsers<a class="headerlink" href="#section-6-sqlite-macos-mobile-browsers" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-6-sqlite-macos-mobile-browsers">
+<h1>Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers<a class="headerlink" href="#chapter-6-sqlite-macos-mobile-browsers" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-pyforhandbook.section_06.opening_sqlite">
-<span id="section-6-1-opening-sqlite"></span><h2>Section 6.1 - Opening Sqlite<a class="headerlink" href="#module-pyforhandbook.section_06.opening_sqlite" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch06_databases.opening_sqlite">
+<span id="section-6-1-opening-sqlite"></span><h2>Section 6.1 - Opening Sqlite<a class="headerlink" href="#module-pyforhandbook.ch06_databases.opening_sqlite" title="Permalink to this headline">¶</a></h2>
 <p>Example for opening and exploring Sqlite databases.</p>
 <p>Example Usage:</p>
 <blockquote>
@@ -197,25 +197,69 @@
 <p>This function shows an example of opening a Sqlite database with Python.
 Additional information regarding Sqlite modules can be
 seen at <a class="reference external" href="https://docs.python.org/3/library/sqlite3.html">https://docs.python.org/3/library/sqlite3.html</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">open_sqlite</span><span class="p">(</span><span class="n">inputdb</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provided Database: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputdb</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">inputdb</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">open_sqlite</span><span class="p">(</span><span class="n">input_db</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Open a SQLite database</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_db: Path to a SQLite database to open</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A connection to a SQLite database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provided Database: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_db</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">input_db</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="listing-tables-configuration">
 <h3>Listing Tables configuration<a class="headerlink" href="#listing-tables-configuration" title="Permalink to this headline">¶</a></h3>
-<p>This function shows an example of listing available tables in an opened Sqlite database.</p>
+<p>This function shows an example of listing available tables in an opened Sqlite
+database.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">list_tables</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;List all tables in a SQLite database</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        conn: An open connection from a SQLite database</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: List of table names found in the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
     <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name FROM sqlite_master&quot;</span><span class="p">)</span>
-    <span class="n">table_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-        <span class="n">table_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-    <span class="k">return</span> <span class="n">table_list</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()]</span>
 </pre></div>
 </div>
+<dl class="py function">
+<dt id="pyforhandbook.ch06_databases.opening_sqlite.list_tables">
+<code class="sig-name descname">list_tables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">conn</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch06_databases.opening_sqlite.list_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all tables in a SQLite database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>conn</strong> – An open connection from a SQLite database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of table names found in the database</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyforhandbook.ch06_databases.opening_sqlite.open_sqlite">
+<code class="sig-name descname">open_sqlite</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_db</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch06_databases.opening_sqlite.open_sqlite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a SQLite database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_db</strong> – Path to a SQLite database to open</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A connection to a SQLite database</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -237,7 +281,7 @@ seen at <a class="reference external" href="https://docs.python.org/3/library/sq
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="section3.html" class="btn btn-neutral float-left" title="Section 3 - Windows Event Log Parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ch03_event_logs.html" class="btn btn-neutral float-left" title="Chapter 3 - Windows Event Log Parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

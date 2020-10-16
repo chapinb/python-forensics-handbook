@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Python Forensics Handbook &mdash; Python Forensics Handbook 0.1.0 documentation</title>
+  <title>The Python Forensics Handbook &mdash; Python Forensics Handbook 0.1.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Section 1 - Essential Scripts" href="section1.html" />
+    <link rel="next" title="Chapter 1 - Essential Scripts" href="ch01_essentials.html" />
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17386833-12"></script>
@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -98,10 +98,10 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section2.html">Section 2 - Registry Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section3.html">Section 3 - Windows Event Log Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section6.html">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch01_essentials.html">Chapter 1 - Essential Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_registry.html">Chapter 2 - Registry Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_event_logs.html">Chapter 3 - Windows Event Log Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_databases.html">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
 </ul>
 
             
@@ -169,25 +169,28 @@
             
   <div class="section" id="the-python-forensics-handbook">
 <h1>The Python Forensics Handbook<a class="headerlink" href="#the-python-forensics-handbook" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="a-guide-for-developing-python-scripts-in-dfir">
-<h2>A guide for developing Python scripts in DFIR<a class="headerlink" href="#a-guide-for-developing-python-scripts-in-dfir" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-reference-guide-for-developing-python-scripts-in-dfir">
+<h2>A reference guide for developing Python scripts in DFIR<a class="headerlink" href="#a-reference-guide-for-developing-python-scripts-in-dfir" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section2.html">Section 2 - Registry Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section3.html">Section 3 - Windows Event Log Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section6.html">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch01_essentials.html">Chapter 1 - Essential Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch02_registry.html">Chapter 2 - Registry Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_event_logs.html">Chapter 3 - Windows Event Log Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_databases.html">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="section" id="module-pyforhandbook">
 <span id="handbook-sections"></span><h1>Handbook Sections<a class="headerlink" href="#module-pyforhandbook" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>IN DEVELOPMENT - More sections will release over the coming weeks/months/as
 time permits. Feel free to contribute as you have an idea or time to assist,
 otherwise stay tuned!</p>
-<p>This handbook has 7 sections covering common tasks for developing
+</div>
+<p>This handbook consists of 7 sections covering common tasks for developing
 Python scripts for use in DFIR. Each section contains short,
 portable code blocks that can drop into a new script with minimal
 tweaking. This way, you can quickly build out your custom script
@@ -200,8 +203,8 @@ worked well for you, even if a similar section already exists. This handbook
 is hosted on GitHub at <a class="reference external" href="https://github.com/chapinb/python-forensics-handbook">https://github.com/chapinb/python-forensics-handbook</a> and
 available to read online at <a class="reference external" href="https://chapinb.com/python-forensics-handbook">https://chapinb.com/python-forensics-handbook</a>.
 Please consider submitting a pull request with your additions!</p>
-<div class="section" id="section-1-essential-script-elements">
-<h2>Section 1 - Essential Script Elements<a class="headerlink" href="#section-1-essential-script-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-1-essential-script-elements">
+<h2>Chapter 1 - Essential Script Elements<a class="headerlink" href="#chapter-1-essential-script-elements" title="Permalink to this headline">¶</a></h2>
 <p>This chapter covers code blocks that are useful across scripts
 and are not DFIR specific, but solid practices to integrate into
 projects to allow for uniformity.</p>
@@ -254,8 +257,10 @@ nested files.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="section-2-registry-hives-with-yarp">
-<h2>Section 2 - Registry Hives with YARP<a class="headerlink" href="#section-2-registry-hives-with-yarp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-2-registry-hives">
+<h2>Chapter 2 - Registry Hives<a class="headerlink" href="#chapter-2-registry-hives" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, we demonstrate how to open a registry hive, navigate through
+its keys, and interact with values to expose information for analysis.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Using yarp to open a single hive</dt><dd><ul>
@@ -283,8 +288,11 @@ needed with minimal effort.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="section-3-event-logs">
-<h2>Section 3 - Event Logs<a class="headerlink" href="#section-3-event-logs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-3-event-logs">
+<h2>Chapter 3 - Event Logs<a class="headerlink" href="#chapter-3-event-logs" title="Permalink to this headline">¶</a></h2>
+<p>The functions showcased in this chapter highlight methods to access events
+within Windows event log files, iterating over the events, and extracting
+useful records for further examination.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Using python-evtx</dt><dd><ul>
@@ -295,7 +303,7 @@ needed with minimal effort.</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Parsing Logins (with types, levels, privs)</dt><dd><ul>
+<dt>Parsing Logins</dt><dd><ul>
 <li><p>Parse out the commonly investigated 4624/4672 events</p></li>
 </ul>
 </dd>
@@ -303,8 +311,8 @@ needed with minimal effort.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="section-4-text-logs">
-<h2>Section 4 - Text logs<a class="headerlink" href="#section-4-text-logs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-4-text-logs">
+<h2>Chapter 4 - Text logs<a class="headerlink" href="#chapter-4-text-logs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Handling IIS Logs</dt><dd><ul>
@@ -329,16 +337,20 @@ needed with minimal effort.</p></li>
 </li>
 </ul>
 </div>
-<div class="section" id="section-5-api-calls-json-data">
-<h2>Section 5 - API calls &amp; JSON data<a class="headerlink" href="#section-5-api-calls-json-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-5-api-calls-json-data">
+<h2>Chapter 5 - API calls &amp; JSON data<a class="headerlink" href="#chapter-5-api-calls-json-data" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>VirusTotal</p></li>
 <li><p>HybridAnalysis</p></li>
 <li><p>Manipulating JSON</p></li>
 </ul>
 </div>
-<div class="section" id="section-6-sqlite-macos-mobile-browsers">
-<h2>Section 6 - SQLite &amp; macOS/mobile/browsers<a class="headerlink" href="#section-6-sqlite-macos-mobile-browsers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-6-databases">
+<h2>Chapter 6 - Databases<a class="headerlink" href="#chapter-6-databases" title="Permalink to this headline">¶</a></h2>
+<p>Databases are found within many applications and operating systems. This chapter
+covers methods to extract information from these common databases, along with
+functions that are purpose built to parse information from frequently seen
+database tables.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>macOS Activity</dt><dd><ul>
@@ -347,12 +359,17 @@ needed with minimal effort.</p></li>
 </dd>
 </dl>
 </li>
-<li><p>Andriod SMS</p></li>
-<li><p>Google Chome History DB</p></li>
+<li><p>Android SMS</p></li>
+<li><p>Google Chrome History DB</p></li>
 </ul>
 </div>
-<div class="section" id="section-7-opening-forensic-images">
-<h2>Section 7 - Opening forensic images<a class="headerlink" href="#section-7-opening-forensic-images" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chapter-7-opening-forensic-images">
+<h2>Chapter 7 - Opening forensic images<a class="headerlink" href="#chapter-7-opening-forensic-images" title="Permalink to this headline">¶</a></h2>
+<p>Media acquisition and preservation formats are very common within DFIR and
+the ability to extract specific contents from these files leads to faster
+analysis and simplified usage of the tool you are building. With these functions
+you can read files from a forensic image and pass them straight to your other
+utilities for further parsing.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>LibEWF</dt><dd><ul>
@@ -366,7 +383,7 @@ needed with minimal effort.</p></li>
 <li><p>Read data from a raw image (MBR)</p></li>
 <li><p>Read data from a file (hashing)</p></li>
 <li><p>Iterate through folders (file listing)</p></li>
-<li><p>Perform targetted reads (file sigs)</p></li>
+<li><p>Perform targeted reads (file signatures)</p></li>
 </ul>
 </dd>
 </dl>
@@ -391,7 +408,7 @@ needed with minimal effort.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="section1.html" class="btn btn-neutral float-right" title="Section 1 - Essential Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ch01_essentials.html" class="btn btn-neutral float-right" title="Chapter 1 - Essential Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

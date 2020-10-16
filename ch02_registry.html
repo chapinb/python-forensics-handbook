@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Section 2 - Registry Parsing &mdash; Python Forensics Handbook 0.1.0 documentation</title>
+  <title>Chapter 2 - Registry Parsing &mdash; Python Forensics Handbook 0.1.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Section 3 - Windows Event Log Parsing" href="section3.html" />
-    <link rel="prev" title="Section 1 - Essential Scripts" href="section1.html" />
+    <link rel="next" title="Chapter 3 - Windows Event Log Parsing" href="ch03_event_logs.html" />
+    <link rel="prev" title="Chapter 1 - Essential Scripts" href="ch01_essentials.html" />
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17386833-12"></script>
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.1
               </div>
             
           
@@ -99,14 +99,14 @@
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="section1.html">Section 1 - Essential Scripts</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Section 2 - Registry Parsing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_02.yarp_base">Section 2.1 - Opening a Hive</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="ch01_essentials.html">Chapter 1 - Essential Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chapter 2 - Registry Parsing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch02_registry.yarp_base">Section 2.1 - Opening a Hive</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#opening-a-registry-hive">Opening a Registry Hive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docstring-references">Docstring References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.section_02.yarp_ntuser">Section 2.2 - Parsing Hive Values</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyforhandbook.ch02_registry.yarp_ntuser">Section 2.2 - Parsing Hive Values</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-hive-specific-parser">Creating a Hive Specific Parser</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-hive-string-values">Reading Hive String Values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-hive-binary-values">Reading Hive Binary Values</a></li>
@@ -116,8 +116,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="section3.html">Section 3 - Windows Event Log Parsing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section6.html">Section 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch03_event_logs.html">Chapter 3 - Windows Event Log Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch06_databases.html">Chapter 6 - Sqlite &amp; MacOS/Mobile/Browsers</a></li>
 </ul>
 
             
@@ -164,13 +164,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Section 2 - Registry Parsing</li>
+      <li>Chapter 2 - Registry Parsing</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/section2.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/ch02_registry.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,12 +183,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="section-2-registry-parsing">
-<h1>Section 2 - Registry Parsing<a class="headerlink" href="#section-2-registry-parsing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-2-registry-parsing">
+<h1>Chapter 2 - Registry Parsing<a class="headerlink" href="#chapter-2-registry-parsing" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-pyforhandbook.section_02.yarp_base">
-<span id="section-2-1-opening-a-hive"></span><h2>Section 2.1 - Opening a Hive<a class="headerlink" href="#module-pyforhandbook.section_02.yarp_base" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch02_registry.yarp_base">
+<span id="section-2-1-opening-a-hive"></span><h2>Section 2.1 - Opening a Hive<a class="headerlink" href="#module-pyforhandbook.ch02_registry.yarp_base" title="Permalink to this headline">¶</a></h2>
 <p>Using the <cite>yarp</cite> library to open Windows registry hives using a class
 structure that is very portable and flexible.</p>
 <p>Example Usage:</p>
@@ -208,9 +208,10 @@ This library not only allows us to open a single offline hive, but also
 leverage any available transaction logs to include additional information
 otherwise available on the Window’s system. This class handles both the opening
 of the primary hive and attempted recovery of the transaction logs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegistryBase</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegistryBase</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Base class containing common registry parsing code. Will open a hive</span>
 <span class="sd">    and attempt recovery using available transaction logs&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_file</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Base __init__ method, responsible for opening a hive.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reg_file</span> <span class="o">=</span> <span class="n">reg_file</span>
@@ -231,10 +232,10 @@ of the primary hive and attempted recovery of the transaction logs.</p>
         <span class="n">hive_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">registry_file</span><span class="o">.</span><span class="n">file_object</span><span class="o">.</span><span class="n">name</span>
         <span class="n">tx_logs</span> <span class="o">=</span> <span class="n">RegistryHelpers</span><span class="o">.</span><span class="n">DiscoverLogFiles</span><span class="p">(</span><span class="n">hive_path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tx_log_files</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">tx_path</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;log_path&#39;</span><span class="p">,</span> <span class="s1">&#39;log1_path&#39;</span><span class="p">,</span> <span class="s1">&#39;log2_path&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">tx_path</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;log_path&quot;</span><span class="p">,</span> <span class="s2">&quot;log1_path&quot;</span><span class="p">,</span> <span class="s2">&quot;log2_path&quot;</span><span class="p">]:</span>
             <span class="n">log_obj</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">tx_logs</span><span class="p">,</span> <span class="n">tx_path</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
-                <span class="n">log_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">tx_logs</span><span class="p">,</span> <span class="n">tx_path</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+                <span class="n">log_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">tx_logs</span><span class="p">,</span> <span class="n">tx_path</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">tx_log_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_obj</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">recover_auto</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">tx_log_files</span><span class="p">)</span>
 
@@ -251,13 +252,13 @@ of the primary hive and attempted recovery of the transaction logs.</p>
 <div class="section" id="docstring-references">
 <h3>Docstring References<a class="headerlink" href="#docstring-references" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="pyforhandbook.section_02.yarp_base.RegistryBase">
-<em class="property">class </em><code class="sig-name descname">RegistryBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_base.RegistryBase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_base.RegistryBase">
+<em class="property">class </em><code class="sig-name descname">RegistryBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_base.RegistryBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class containing common registry parsing code. Will open a hive
 and attempt recovery using available transaction logs</p>
 <dl class="py method">
-<dt id="pyforhandbook.section_02.yarp_base.RegistryBase.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_base.RegistryBase.close" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_base.RegistryBase.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_base.RegistryBase.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Properly close a hive.</p>
 </dd></dl>
 
@@ -265,8 +266,8 @@ and attempt recovery using available transaction logs</p>
 
 </div>
 </div>
-<div class="section" id="module-pyforhandbook.section_02.yarp_ntuser">
-<span id="section-2-2-parsing-hive-values"></span><h2>Section 2.2 - Parsing Hive Values<a class="headerlink" href="#module-pyforhandbook.section_02.yarp_ntuser" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyforhandbook.ch02_registry.yarp_ntuser">
+<span id="section-2-2-parsing-hive-values"></span><h2>Section 2.2 - Parsing Hive Values<a class="headerlink" href="#module-pyforhandbook.ch02_registry.yarp_ntuser" title="Permalink to this headline">¶</a></h2>
 <p>Using the <cite>yarp</cite> library to parse NTUSER.DAT Windows registry hives
 using a class structure that is very portable and flexible. Parses the
 MountPoints2 and TrustRecords keys for with string and binary values.</p>
@@ -290,7 +291,7 @@ this class we store a few useful details including fixed values used by other
 methods and metadata about the class.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_path</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">reg_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hive_type</span> <span class="o">=</span> <span class="s1">&#39;NTUSER.DAT&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hive_type</span> <span class="o">=</span> <span class="s2">&quot;NTUSER.DAT&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">macro_enabled_val</span> <span class="o">=</span> <span class="mi">2147483647</span>
 </pre></div>
 </div>
@@ -299,21 +300,23 @@ methods and metadata about the class.</p>
 <h3>Reading Hive String Values<a class="headerlink" href="#reading-hive-string-values" title="Permalink to this headline">¶</a></h3>
 <p>With an open hive, we can begin to parse values from a known key location
 within the hive. This method allows us to specify a key path and inspect each
-of the subkeys. For each of the subkeys, we can then get the names and data
+of the sub-keys. For each of the sub-keys, we can then get the names and data
 associated with each value in the key. Additionally we could - if needed -
-continue to recurse on subkeys here. Instead we return this cursory information
+continue to recurse on sub-keys here. Instead we return this cursory information
 for the caller to display as they wish. Since the values within MountPoints2
 store string data, we don’t need to perform further parsing of the record.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">parse_mountpoints2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">parse_mount_points2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Demonstration of parsing values from a key by path.&quot;&quot;&quot;</span>
-        <span class="n">key_path</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Software</span><span class="se">\\</span><span class="s1">Microsoft</span><span class="se">\\</span><span class="s1">Windows</span><span class="se">\\</span><span class="s1">CurrentVersion&#39;</span>
-                    <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Explorer</span><span class="se">\\</span><span class="s1">MountPoints2&#39;</span><span class="p">)</span>
+        <span class="n">key_path</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Windows</span><span class="se">\\</span><span class="s2">CurrentVersion&quot;</span>
+            <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Explorer</span><span class="se">\\</span><span class="s2">MountPoints2&quot;</span>
+        <span class="p">)</span>
         <span class="k">for</span> <span class="n">mp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">find_key</span><span class="p">(</span><span class="n">key_path</span><span class="p">)</span><span class="o">.</span><span class="n">subkeys</span><span class="p">():</span>
-            <span class="n">mp_data</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">mp_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="n">mp_data</span><span class="p">[</span><span class="s1">&#39;values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">():</span> <span class="n">x</span><span class="o">.</span><span class="n">data</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mp</span><span class="o">.</span><span class="n">values</span><span class="p">()}</span>
-            <span class="n">mp_data</span><span class="p">[</span><span class="s1">&#39;last_written&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">last_written_timestamp</span><span class="p">()</span>
-            <span class="k">yield</span> <span class="n">mp_data</span>
+            <span class="k">yield</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">mp</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">():</span> <span class="n">x</span><span class="o">.</span><span class="n">data</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mp</span><span class="o">.</span><span class="n">values</span><span class="p">()},</span>
+                <span class="s2">&quot;last_written&quot;</span><span class="p">:</span> <span class="n">mp</span><span class="o">.</span><span class="n">last_written_timestamp</span><span class="p">(),</span>
+            <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -327,24 +330,27 @@ If found, we then parse the binary data (retrieved with the same <cite>.data()</
 method) using Struct to extract a timestamp and integer marking whether a
 trusted macro was used. These parsed attributes are then returned to the caller
 to be displayed.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">parse_trustrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">parse_trust_records</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Demonstration of parsing binary values within a key.&quot;&quot;&quot;</span>
-        <span class="n">trust_record_path</span> <span class="o">=</span> <span class="s1">&#39;Software</span><span class="se">\\</span><span class="s1">Microsoft</span><span class="se">\\</span><span class="s1">Office</span><span class="se">\\</span><span class="si">{OFFICE_VERSION}</span><span class="s1">&#39;</span> \
-                    <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Word</span><span class="se">\\</span><span class="s1">Security</span><span class="se">\\</span><span class="s1">Trusted Documents</span><span class="se">\\</span><span class="s1">TrustRecords&#39;</span>
+        <span class="n">trust_record_path</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Software</span><span class="se">\\</span><span class="s2">Microsoft</span><span class="se">\\</span><span class="s2">Office</span><span class="se">\\</span><span class="si">{OFFICE_VERSION}</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Word</span><span class="se">\\</span><span class="s2">Security</span><span class="se">\\</span><span class="s2">Trusted Documents</span><span class="se">\\</span><span class="s2">TrustRecords&quot;</span>
+        <span class="p">)</span>
         <span class="k">for</span> <span class="n">office_version</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_office_versions</span><span class="p">():</span>
             <span class="n">trust_rec_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">find_key</span><span class="p">(</span>
-                <span class="n">trust_record_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">OFFICE_VERSION</span><span class="o">=</span><span class="n">office_version</span><span class="p">))</span>
+                <span class="n">trust_record_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">OFFICE_VERSION</span><span class="o">=</span><span class="n">office_version</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">trust_rec_key</span><span class="p">:</span>
                 <span class="k">continue</span>
 
             <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">trust_rec_key</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-                <span class="n">date_val</span><span class="p">,</span> <span class="n">macro_enabled</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;q12xI&#39;</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
-                <span class="n">ms</span> <span class="o">=</span> <span class="n">date_val</span><span class="o">/</span><span class="mf">10.0</span>
+                <span class="n">date_val</span><span class="p">,</span> <span class="n">macro_enabled</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;q12xI&quot;</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+                <span class="n">ms</span> <span class="o">=</span> <span class="n">date_val</span> <span class="o">/</span> <span class="mf">10.0</span>
                 <span class="n">dt_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1601</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="n">ms</span><span class="p">)</span>
                 <span class="k">yield</span> <span class="p">{</span>
-                    <span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="n">rec</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span>
-                    <span class="s1">&#39;dt&#39;</span><span class="p">:</span> <span class="n">dt_date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
-                    <span class="s1">&#39;macro&#39;</span><span class="p">:</span> <span class="n">macro_enabled</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">macro_enabled_val</span>
+                    <span class="s2">&quot;doc&quot;</span><span class="p">:</span> <span class="n">rec</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span>
+                    <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="n">dt_date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+                    <span class="s2">&quot;macro&quot;</span><span class="p">:</span> <span class="n">macro_enabled</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">macro_enabled_val</span><span class="p">,</span>
                 <span class="p">}</span>
 </pre></div>
 </div>
@@ -352,18 +358,18 @@ to be displayed.</p>
 <div class="section" id="id1">
 <h3>Docstring References<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER">
-<em class="property">class </em><code class="sig-name descname">NTUSER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_ntuser.NTUSER">
+<em class="property">class </em><code class="sig-name descname">NTUSER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reg_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_ntuser.NTUSER" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to handle the parsing of the NTUSER.DAT hive.</p>
 <dl class="py method">
-<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_mountpoints2">
-<code class="sig-name descname">parse_mountpoints2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_mountpoints2" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_mount_points2">
+<code class="sig-name descname">parse_mount_points2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_mount_points2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demonstration of parsing values from a key by path.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_office_versions">
-<code class="sig-name descname">parse_office_versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_office_versions" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_office_versions">
+<code class="sig-name descname">parse_office_versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_office_versions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get Office versions within an open Registry hive.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Yields</dt>
@@ -373,8 +379,8 @@ to be displayed.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_trustrecords">
-<code class="sig-name descname">parse_trustrecords</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.section_02.yarp_ntuser.NTUSER.parse_trustrecords" title="Permalink to this definition">¶</a></dt>
+<dt id="pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_trust_records">
+<code class="sig-name descname">parse_trust_records</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch02_registry.yarp_ntuser.NTUSER.parse_trust_records" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demonstration of parsing binary values within a key.</p>
 </dd></dl>
 
@@ -400,10 +406,10 @@ to be displayed.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="section3.html" class="btn btn-neutral float-right" title="Section 3 - Windows Event Log Parsing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ch03_event_logs.html" class="btn btn-neutral float-right" title="Chapter 3 - Windows Event Log Parsing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="section1.html" class="btn btn-neutral float-left" title="Section 1 - Essential Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ch01_essentials.html" class="btn btn-neutral float-left" title="Chapter 1 - Essential Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
