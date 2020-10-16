@@ -22,7 +22,7 @@ Open Windows Event Logs (EVTX)
 This function shows an example of opening an EVTX file and parsing out several
 header metadata parameters about the file.
 
-.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
+.. literalinclude:: ../pyforhandbook/ch03_event_logs/using_python_evtx.py
     :pyobject: open_evtx
 
 Iterate over record XML data (EVTX)
@@ -38,7 +38,7 @@ which will then call the ``.lxml()`` method on the individual event record.
 This requires the installation of the lxml Library, as it returns a lxml.etree
 object that you can interact with.
 
-.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
+.. literalinclude:: ../pyforhandbook/ch03_event_logs/using_python_evtx.py
     :pyobject: get_events
 
 Filtering records within events logs
@@ -55,7 +55,7 @@ filters, and return values. Some examples include:
 - Identify PowerShell events and expose arguments for further processing
   (ie. Base64 decoding, shellcode analysis)
 
-.. literalinclude:: ../pyforhandbook/section_03/using_python_evtx.py
+.. literalinclude:: ../pyforhandbook/ch03_event_logs/using_python_evtx.py
     :pyobject: filter_events_json
 
 Docstring References
@@ -90,13 +90,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Chapin Bryce'
+__author__ = "Chapin Bryce"
 __date__ = 20191103
-__license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Sample script to read EVTX files.'''
-__docs__ = [
-    'https://github.com/williballenthin/python-evtx'
-]
+__license__ = "MIT Copyright 2019 Chapin Bryce"
+__desc__ = """Sample script to read EVTX files."""
+__docs__ = ["https://github.com/williballenthin/python-evtx"]
 
 
 def open_evtx(input_file):
@@ -117,13 +115,15 @@ def open_evtx(input_file):
 
     with evtx.Evtx(input_file) as open_log:
         header = open_log.get_file_header()
-        properties = OrderedDict([
-            ('major_version', 'File version (major)'),
-            ('minor_version', 'File version (minor)'),
-            ('is_dirty', 'File is ditry'),
-            ('is_full', 'File is full'),
-            ('next_record_number', 'Next record number')
-        ])
+        properties = OrderedDict(
+            [
+                ("major_version", "File version (major)"),
+                ("minor_version", "File version (minor)"),
+                ("is_dirty", "File is dirty"),
+                ("is_full", "File is full"),
+                ("next_record_number", "Next record number"),
+            ]
+        )
 
         for key, value in properties.items():
             print(f"{value}: {getattr(header, key)()}")
@@ -192,22 +192,23 @@ def filter_events_json(event_data, event_ids, fields=None):
             event_data = evt.find("EventData", evt.nsmap)
             json_data = {}
             for data in event_data.getchildren():
-                if not fields or data.attrib['Name'] in fields:
+                if not fields or data.attrib["Name"] in fields:
                     # If we don't have a specified field filter list, print all
                     # Otherwise filter for only those fields within the list
-                    json_data[data.attrib['Name']] = data.text
+                    json_data[data.attrib["Name"]] = data.text
 
             yield json_data
 
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(
         description=__desc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        epilog=f"Built by {__author__}, v.{__date__}"
+        epilog=f"Built by {__author__}, v.{__date__}",
     )
-    parser.add_argument('EVTX_FILE', help="EVTX file to read")
+    parser.add_argument("EVTX_FILE", help="EVTX file to read")
     args = parser.parse_args()
 
     print("EVTX File Header Information")
@@ -221,10 +222,19 @@ if __name__ == "__main__":
     print("Filter for Login events")
     logins = filter_events_json(
         get_events(args.EVTX_FILE, parse_xml=True),
-        event_ids=['4624'],
-        fields=["SubjectUserName", "SubjectUserSid", "SubjectDomainName",
-              "TargetUserName", "TargetUserSid", "TargetDomainName",
-              "WorkstationName", "IpAddress", "IpPort", "ProcessName"]
+        event_ids=["4624"],
+        fields=[
+            "SubjectUserName",
+            "SubjectUserSid",
+            "SubjectDomainName",
+            "TargetUserName",
+            "TargetUserSid",
+            "TargetDomainName",
+            "WorkstationName",
+            "IpAddress",
+            "IpPort",
+            "ProcessName",
+        ],
     )
     for login in logins:
         print(json.dumps(login, indent=2))

@@ -1,4 +1,4 @@
-Section 3 - Windows Event Log Parsing
+Chapter 3 - Windows Event Log Parsing
 =====================================
 .. toctree::
    :maxdepth: 2
@@ -6,7 +6,7 @@ Section 3 - Windows Event Log Parsing
 
 Section 3.1 - Using python-evtx
 ----------------------------------
-.. automodule:: pyforhandbook.section_03.using_python_evtx
+.. automodule:: pyforhandbook.ch03_event_logs.using_python_evtx
    :members:
 
 Indices and tables

@@ -1,9 +1,10 @@
 """
-IN DEVELOPMENT - More sections will release over the coming weeks/months/as
-time permits. Feel free to contribute as you have an idea or time to assist,
-otherwise stay tuned!
+.. note::
+    IN DEVELOPMENT - More sections will release over the coming weeks/months/as
+    time permits. Feel free to contribute as you have an idea or time to assist,
+    otherwise stay tuned!
 
-This handbook has 7 sections covering common tasks for developing
+This handbook consists of 7 sections covering common tasks for developing
 Python scripts for use in DFIR. Each section contains short,
 portable code blocks that can drop into a new script with minimal
 tweaking. This way, you can quickly build out your custom script
@@ -19,7 +20,7 @@ is hosted on GitHub at https://github.com/chapinb/python-forensics-handbook and
 available to read online at https://chapinb.com/python-forensics-handbook.
 Please consider submitting a pull request with your additions!
 
-Section 1 - Essential Script Elements
+Chapter 1 - Essential Script Elements
 -------------------------------------
 
 This chapter covers code blocks that are useful across scripts
@@ -43,8 +44,11 @@ projects to allow for uniformity.
 * Parallel Processing
     - Simple implementation of multithreading and multiprocessing
 
-Section 2 - Registry Hives with YARP
+Chapter 2 - Registry Hives
 ------------------------------------
+
+In this chapter, we demonstrate how to open a registry hive, navigate through
+its keys, and interact with values to expose information for analysis.
 
 * Using yarp to open a single hive
     - Opening a hive and recovering data available in transaction logs
@@ -56,16 +60,20 @@ Section 2 - Registry Hives with YARP
 * Searching for a pattern across hive keys and values.
     - Looking for a provided pattern across the entire hive.
 
-Section 3 - Event Logs
+Chapter 3 - Event Logs
 ----------------------
+
+The functions showcased in this chapter highlight methods to access events
+within Windows event log files, iterating over the events, and extracting
+useful records for further examination.
 
 * Using python-evtx
     - Opening evtx files
     - Iterating over events
-* Parsing Logins (with types, levels, privs)
+* Parsing Logins
     - Parse out the commonly investigated 4624/4672 events
 
-Section 4 - Text logs
+Chapter 4 - Text logs
 ---------------------
 
 * Handling IIS Logs
@@ -75,23 +83,34 @@ Section 4 - Text logs
 * Adding in GeoIP
     - Function to add GeoIP recognition
 
-Section 5 - API calls & JSON data
+Chapter 5 - API calls & JSON data
 ---------------------------------
 
 * VirusTotal
 * HybridAnalysis
 * Manipulating JSON
 
-Section 6 - SQLite & macOS/mobile/browsers
+Chapter 6 - Databases
 ------------------------------------------
+
+Databases are found within many applications and operating systems. This chapter
+covers methods to extract information from these common databases, along with
+functions that are purpose built to parse information from frequently seen
+database tables.
 
 * macOS Activity
     - KnowledgeC
-* Andriod SMS
-* Google Chome History DB
+* Android SMS
+* Google Chrome History DB
 
-Section 7 - Opening forensic images
+Chapter 7 - Opening forensic images
 --------------------------------------
+
+Media acquisition and preservation formats are very common within DFIR and
+the ability to extract specific contents from these files leads to faster
+analysis and simplified usage of the tool you are building. With these functions
+you can read files from a forensic image and pass them straight to your other
+utilities for further parsing.
 
 * LibEWF
     - Expose an E01 as a raw image
@@ -99,6 +118,6 @@ Section 7 - Opening forensic images
     - Read data from a raw image (MBR)
     - Read data from a file (hashing)
     - Iterate through folders (file listing)
-    - Perform targetted reads (file sigs)
+    - Perform targeted reads (file signatures)
 
 """

@@ -19,7 +19,7 @@ folders within a single directory. From here you can further
 interact with individual files and folders or iterate recursively
 by calling the function on identified subdirectories.
 
-.. literalinclude:: ../pyforhandbook/section_01/recursion_example.py
+.. literalinclude:: ../pyforhandbook/ch01_essentials/recursion_example.py
     :pyobject: list_directory
 
 List a directory recursively
@@ -33,7 +33,7 @@ handling the processing of files. This sample shows a method of
 counting the number of files, subdirectories, and files ending in
 ".py" as an example.
 
-.. literalinclude:: ../pyforhandbook/section_01/recursion_example.py
+.. literalinclude:: ../pyforhandbook/ch01_essentials/recursion_example.py
     :pyobject: iterate_files
 
 """
@@ -63,16 +63,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Chapin Bryce'
+__author__ = "Chapin Bryce"
 __date__ = 20190527
-__license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Sample script to iterate over a folder of files.'''
-__docs__ = [
-    'https://docs.python.org/3/library/os.html'
-]
+__license__ = "MIT Copyright 2019 Chapin Bryce"
+__desc__ = """Sample script to iterate over a folder of files."""
+__docs__ = ["https://docs.python.org/3/library/os.html"]
+
 
 def list_directory(path):
-    """List all file and folder entries in `path`."""
+    """List all file and folder entries in `path`.
+
+    Args:
+        path (str): A directory within a mounted file system. May be relative or
+            absolute.
+
+    Examples:
+        >>> list_directory('.')
+
+    """
     print(f"Files and folders in '{os.path.abspath(path)}':")
     # Quick and easy method for listing items within a single
     # folder.
@@ -80,7 +88,23 @@ def list_directory(path):
         # Print all entry names
         print(f"\t{entry}")
 
+
 def iterate_files(path):
+    """Recursively iterate over a path, findings all files within the folder
+    and its subdirectories.
+
+    Args:
+        path (str): A directory within a mounted file system. May be relative or
+            absolute.
+
+    Examples:
+        >>> number_of_py_files = 0
+        >>> for f in iterate_files('../'):
+        ...     if f.endswith('.py'):
+        ...         number_of_py_files += 1
+        >>> print(f"\t{number_of_py_files} python files found "
+        ...      f"in {os.path.abspath('../')}")
+    """
     # Though `os.walk()` exposes a list of directories in the
     # current `root`, it is rarely used since we are generally
     # interested in the files found within the subdirectories.
@@ -89,23 +113,21 @@ def iterate_files(path):
     for root, dirs, files in os.walk(os.path.abspath(path)):
         # Both `dirs` and `files` are lists containing all entries
         # at the current `root`.
-        for fentry in files:
+        for file_name in files:
             # To effectively reference a file, you should include
             # the below line which creates a full path reference
             # to the specific file, regardless of how nested it is
-            file_entry = os.path.join(root, fentry)
             # We can then hand `file_entry` off to other functions.
-            yield file_entry
+            yield os.path.join(root, file_name)
 
 
 if __name__ == "__main__":
     abspath = os.path.abspath
     print(f"Listing {abspath('.')}")
-    list_directory('.')
-    print(f"\nRecurively counting files in {abspath('../../')}")
+    list_directory(".")
+    print(f"\nRecursively counting files in {abspath('../../')}")
     num_py_files = 0
-    for file_entry in iterate_files('../../'):
-        if file_entry.endswith('.py'):
+    for file_entry in iterate_files("../"):
+        if file_entry.endswith(".py"):
             num_py_files += 1
-    print(f"\t{num_py_files} python files found "
-          f"in {abspath('../../')}")
+    print(f"\t{num_py_files} python files found in {abspath('../')}")

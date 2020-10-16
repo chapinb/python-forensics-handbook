@@ -1,4 +1,4 @@
-Section 2 - Registry Parsing
+Chapter 2 - Registry Parsing
 ==============================
 .. toctree::
    :maxdepth: 2
@@ -6,12 +6,12 @@ Section 2 - Registry Parsing
 
 Section 2.1 - Opening a Hive
 --------------------------------
-.. automodule:: pyforhandbook.section_02.yarp_base
+.. automodule:: pyforhandbook.ch02_registry.yarp_base
    :members:
 
 Section 2.2 - Parsing Hive Values
 ----------------------------------
-.. automodule:: pyforhandbook.section_02.yarp_ntuser
+.. automodule:: pyforhandbook.ch02_registry.yarp_ntuser
    :members:
 
 Indices and tables

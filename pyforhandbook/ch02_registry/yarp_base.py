@@ -21,14 +21,12 @@ leverage any available transaction logs to include additional information
 otherwise available on the Window's system. This class handles both the opening
 of the primary hive and attempted recovery of the transaction logs.
 
-.. literalinclude:: ../pyforhandbook/section_02/yarp_base.py
+.. literalinclude:: ../pyforhandbook/ch02_registry/yarp_base.py
     :pyobject: RegistryBase
 
 Docstring References
 ====================
 """
-from datetime import datetime, timedelta
-import struct
 # Installed via:
 #   pip install https://github.com/msuhanov/yarp/archive/1.0.28.tar.gz
 from yarp import Registry, RegistryHelpers
@@ -58,20 +56,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Chapin Bryce'
+__author__ = "Chapin Bryce"
 __date__ = 20190707
-__license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Registry parsing class that opens an offline hive.'''
+__license__ = "MIT Copyright 2019 Chapin Bryce"
+__desc__ = """Registry parsing class that opens an offline hive."""
 __docs__ = [
-    'https://github.com/msuhanov/yarp',
-    'https://docs.python.org/3/library/datetime.html',
-    'https://docs.python.org/3/library/struct.html'
+    "https://github.com/msuhanov/yarp",
+    "https://docs.python.org/3/library/datetime.html",
+    "https://docs.python.org/3/library/struct.html",
 ]
 
 
-class RegistryBase():
+class RegistryBase:
     """Base class containing common registry parsing code. Will open a hive
     and attempt recovery using available transaction logs"""
+
     def __init__(self, reg_file):
         """Base __init__ method, responsible for opening a hive."""
         self.reg_file = reg_file
@@ -92,10 +91,10 @@ class RegistryBase():
         hive_path = self.hive.registry_file.file_object.name
         tx_logs = RegistryHelpers.DiscoverLogFiles(hive_path)
         self.tx_log_files = []
-        for tx_path in ['log_path', 'log1_path', 'log2_path']:
+        for tx_path in ["log_path", "log1_path", "log2_path"]:
             log_obj = None
             if getattr(tx_logs, tx_path, None):
-                log_obj = open(getattr(tx_logs, tx_path), 'rb')
+                log_obj = open(getattr(tx_logs, tx_path), "rb")
             self.tx_log_files.append(log_obj)
         self.hive.recover_auto(*self.tx_log_files)
 
@@ -117,12 +116,14 @@ def main(reg_file):
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(
-        description='Registry Parsing',
+        description="Registry Parsing",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        epilog=f"Built by {__author__}, v.{__date__}"
+        epilog=f"Built by {__author__}, v.{__date__}",
     )
-    parser.add_argument('REG_FILE', help='Path to registry file',
-                        type=argparse.FileType('rb'))
+    parser.add_argument(
+        "REG_FILE", help="Path to registry file", type=argparse.FileType("rb")
+    )
     args = parser.parse_args()
     main(args.REG_FILE)

@@ -22,7 +22,7 @@ magic value/file signature, this low-tech method will help with parsing a
 collection of files that may be UTF-8, UTF-16-LE, and UTF-16-BE, three very
 common text file encodings. Feel free to build and share on this.
 
-.. literalinclude:: ../pyforhandbook/section_01/open_files.py
+.. literalinclude:: ../pyforhandbook/ch01_essentials/open_files.py
     :pyobject: open_file
 
 Docstring References
@@ -30,7 +30,6 @@ Docstring References
 """
 
 from io import open
-import os
 
 """
 Copyright 2019 Chapin Bryce
@@ -56,13 +55,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Chapin Bryce'
+__author__ = "Chapin Bryce"
 __date__ = 20191103
-__license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Sample script to read encoded text files.'''
+__license__ = "MIT Copyright 2019 Chapin Bryce"
+__desc__ = """Sample script to read encoded text files."""
 __docs__ = [
-    'https://docs.python.org/3/library/csv.html',
-    'https://docs.python.org/3/library/os.html'
+    "https://docs.python.org/3/library/csv.html",
+    "https://docs.python.org/3/library/os.html",
 ]
 
 
@@ -73,28 +72,29 @@ def open_file(input_file):
         input_file (str): Path to file to open
     """
 
-    test_encoding = open(input_file, 'rb')
+    test_encoding = open(input_file, "rb")
     bom = test_encoding.read(2)
-    file_encoding = 'utf-8'
-    if bom == b'FEFF':
-        file_encoding = 'utf-16-le'
-    elif bom == b'FFFE':
-        file_encoding = 'utf-16-be'
+    file_encoding = "utf-8"
+    if bom == b"FEFF":
+        file_encoding = "utf-16-le"
+    elif bom == b"FFFE":
+        file_encoding = "utf-16-be"
 
-    with open(input_file, 'r', encoding=file_encoding) as fopen:
-        for raw_line in fopen:
+    with open(input_file, "r", encoding=file_encoding) as open_input_file:
+        for raw_line in open_input_file:
             line = raw_line.strip()
-
             print(line)
+
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(
         description=__desc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        epilog=f"Built by {__author__}, v.{__date__}"
+        epilog=f"Built by {__author__}, v.{__date__}",
     )
-    parser.add_argument('INPUT_FILE', help="Text file to read")
+    parser.add_argument("INPUT_FILE", help="Text file to read")
     args = parser.parse_args()
 
     open_file(args.INPUT_FILE)

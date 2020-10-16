@@ -1,4 +1,4 @@
-Section 1 - Essential Scripts
+Chapter 1 - Essential Scripts
 ==============================
 .. toctree::
    :maxdepth: 2
@@ -6,27 +6,27 @@ Section 1 - Essential Scripts
 
 Section 1.1 - Argparse Example
 --------------------------------
-.. automodule:: pyforhandbook.section_01.argparse_example
+.. automodule:: pyforhandbook.ch01_essentials.argparse_example
    :members:
 
 Section 1.2 - Logging Example
 --------------------------------
-.. automodule:: pyforhandbook.section_01.logging_example
+.. automodule:: pyforhandbook.ch01_essentials.logging_example
    :members:
 
 Section 1.3 - Open Files
 ------------------------
-.. automodule:: pyforhandbook.section_01.open_files
+.. automodule:: pyforhandbook.ch01_essentials.open_files
    :members:
 
 Section 1.4 - CSV Example
 --------------------------------
-.. automodule:: pyforhandbook.section_01.csv_example
+.. automodule:: pyforhandbook.ch01_essentials.csv_example
    :members:
 
 Section 1.5 - Directory Recursion
 ---------------------------------
-.. automodule:: pyforhandbook.section_01.recursion_example
+.. automodule:: pyforhandbook.ch01_essentials.recursion_example
    :members:
 
 Indices and tables

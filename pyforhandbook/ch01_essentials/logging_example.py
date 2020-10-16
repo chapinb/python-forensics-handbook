@@ -20,7 +20,7 @@ set different logging levels for the two handlers - generally you
 keep debugging information in the log file while writing more
 critical messages to the console in STDERR.
 
-.. literalinclude:: ../pyforhandbook/section_01/logging_example.py
+.. literalinclude:: ../pyforhandbook/ch01_essentials/logging_example.py
     :pyobject: setup_logging
 
 Docstring References
@@ -53,61 +53,64 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Chapin Bryce'
+__author__ = "Chapin Bryce"
 __date__ = 20190527
-__license__ = 'MIT Copyright 2019 Chapin Bryce'
-__desc__ = '''Sample script to display and write logging
-    messages.'''
+__license__ = "MIT Copyright 2019 Chapin Bryce"
+__desc__ = """Sample script to display and write logging
+    messages."""
 __docs__ = [
-    'https://docs.python.org/3/library/logging.html',
-    'https://docs.python.org/3/library/os.html'
+    "https://docs.python.org/3/library/logging.html",
+    "https://docs.python.org/3/library/os.html",
 ]
 
-logger = None
+logger = logging.getLogger(name=__name__)
 
-def setup_logging():
-    """Function to setup logging configuration and test it."""
-    # Allow us to modify the `logger` variable within a function
-    global logger
 
-    # Set logger object, uses module's name
-    logger = logging.getLogger(name=__name__)
+def setup_logging(logging_obj, verbose=False):
+    """Function to setup logging configuration and test it.
 
-    # Set default logger level to DEBUG. You can change this later
-    logger.setLevel(logging.DEBUG)
+    Args:
+        logging_obj: A logging instance, returned from logging.getLogger().
+        verbose: Whether or not to enable the debug level in STDERR output.
 
-    # Logging formatter. Best to keep consistent for most usecases
+    Examples:
+        >>> sample_logger = logging.getLogger(name=__name__)
+        >>> sample_logger = setup_logging(sample_logger)
+        >>> sample_logger.debug("This is a debug message")
+        >>> sample_logger.info("This is an info message")
+        >>> sample_logger.warning("This is a warning message")
+        >>> sample_logger.error("This is a error message")
+        >>> sample_logger.critical("This is a critical message")
+    """
+    logging_obj.setLevel(logging.DEBUG)
+
+    # Logging formatter. Best to keep consistent for most use cases
     log_format = logging.Formatter(
-        '%(asctime)s %(filename)s %(levelname)s %(module)s '
-        '%(funcName)s %(lineno)d %(message)s')
+        "%(asctime)s %(filename)s %(levelname)s %(module)s "
+        "%(funcName)s %(lineno)d %(message)s"
+    )
 
     # Setup STDERR logging, allowing you uninterrupted
     # STDOUT redirection
     stderr_handle = logging.StreamHandler(stream=sys.stderr)
-    stderr_handle.setLevel(logging.INFO)
+    if verbose:
+        stderr_handle.setLevel(logging.DEBUG)
+    else:
+        stderr_handle.setLevel(logging.INFO)
     stderr_handle.setFormatter(log_format)
 
     # Setup file logging
-    file_handle = logging.FileHandler('sample.log', 'a')
+    file_handle = logging.FileHandler("sample.log", "a")
     file_handle.setLevel(logging.DEBUG)
     file_handle.setFormatter(log_format)
 
     # Add handles
-    logger.addHandler(stderr_handle)
-    logger.addHandler(file_handle)
+    logging_obj.addHandler(stderr_handle)
+    logging_obj.addHandler(file_handle)
 
-    # Sample log messages
-    logger.debug("This is a debug message")
-    logger.info("This is an info message")
-    logger.warning("This is a warning message")
-    logger.error("This is a error message")
-    logger.critical("This is a critical message")
+    return logging_obj
 
-    def sample_function():
-        """Sample function to demonstrate logging formatting."""
-        logger.info("Called from a function")
-
-    sample_function()
 
 if __name__ == "__main__":
-    setup_logging()
+    setup_logging(logger)
+    logger.warning("This is a warning!")

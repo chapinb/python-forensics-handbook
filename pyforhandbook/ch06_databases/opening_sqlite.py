@@ -17,19 +17,19 @@ This function shows an example of opening a Sqlite database with Python.
 Additional information regarding Sqlite modules can be
 seen at https://docs.python.org/3/library/sqlite3.html.
 
-.. literalinclude:: ../pyforhandbook/section_06/opening_sqlite.py
+.. literalinclude:: ../pyforhandbook/ch06_databases/opening_sqlite.py
     :pyobject: open_sqlite
 
 Listing Tables configuration
 ============================
 
-This function shows an example of listing available tables in an opened Sqlite database.
+This function shows an example of listing available tables in an opened Sqlite
+database.
 
-.. literalinclude:: ../pyforhandbook/section_06/opening_sqlite.py
+.. literalinclude:: ../pyforhandbook/ch06_databases/opening_sqlite.py
     :pyobject: list_tables
 """
 import argparse
-import os
 import sqlite3
 
 """
@@ -56,39 +56,53 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-__author__ = 'Brittney Argirakis'
+__author__ = "Brittney Argirakis"
 __date__ = 20191126
-__license__ = 'MIT Copyright 2019 Brittney Argirakis'
-__desc__ = '''Sample script to open a SqLite DB.'''
+__license__ = "MIT Copyright 2019 Brittney Argirakis"
+__desc__ = """Sample script to open a SqLite DB."""
 __docs__ = [
-    'https://docs.python.org/3/library/argparse.html',
-    'https://docs.python.org/3/library/os.html',
-    'https://docs.python.org/3/library/sqlite3.html'
+    "https://docs.python.org/3/library/argparse.html",
+    "https://docs.python.org/3/library/os.html",
+    "https://docs.python.org/3/library/sqlite3.html",
 ]
 
-def open_sqlite(inputdb):
-    print("Provided Database: {}".format(inputdb))
-    return sqlite3.connect(inputdb)
+
+def open_sqlite(input_db):
+    """Open a SQLite database
+
+    Args:
+        input_db: Path to a SQLite database to open
+
+    Returns:
+        A connection to a SQLite database
+    """
+    print("Provided Database: {}".format(input_db))
+    return sqlite3.connect(input_db)
+
 
 def list_tables(conn):
+    """List all tables in a SQLite database
+
+    Args:
+        conn: An open connection from a SQLite database
+
+    Returns:
+        list: List of table names found in the database
+    """
     cur = conn.cursor()
     cur.execute("SELECT name FROM sqlite_master")
-    table_list = []
-    for i in cur.fetchall():
-        table_list.append(i[0])
-    
-    return table_list
+    return [i[0] for i in cur.fetchall()]
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description=__desc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        epilog=f"Built by {__author__}, v.{__date__}"
+        epilog=f"Built by {__author__}, v.{__date__}",
     )
     parser.add_argument("db", help="path to the database to read")
     args = parser.parse_args()
-    conn = open_sqlite(args.db)
-    listed_tables = list_tables(conn)
+    connection = open_sqlite(args.db)
+    listed_tables = list_tables(connection)
 
     print(listed_tables)
