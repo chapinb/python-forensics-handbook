@@ -66,16 +66,18 @@ __docs__ = [
 logger = logging.getLogger(name=__name__)
 
 
-def setup_logging(logging_obj, verbose=False):
+def setup_logging(logging_obj, log_file, verbose=False):
     """Function to setup logging configuration and test it.
 
     Args:
         logging_obj: A logging instance, returned from logging.getLogger().
+        log_file: File path to write log messages to.
         verbose: Whether or not to enable the debug level in STDERR output.
 
     Examples:
         >>> sample_logger = logging.getLogger(name=__name__)
-        >>> sample_logger = setup_logging(sample_logger)
+        >>> log_path = "sample.log"
+        >>> setup_logging(sample_logger, log_path, verbose=True)
         >>> sample_logger.debug("This is a debug message")
         >>> sample_logger.info("This is an info message")
         >>> sample_logger.warning("This is a warning message")
@@ -100,7 +102,7 @@ def setup_logging(logging_obj, verbose=False):
     stderr_handle.setFormatter(log_format)
 
     # Setup file logging
-    file_handle = logging.FileHandler("sample.log", "a")
+    file_handle = logging.FileHandler(log_file, "a")
     file_handle.setLevel(logging.DEBUG)
     file_handle.setFormatter(log_format)
 
@@ -108,9 +110,7 @@ def setup_logging(logging_obj, verbose=False):
     logging_obj.addHandler(stderr_handle)
     logging_obj.addHandler(file_handle)
 
-    return logging_obj
-
 
 if __name__ == "__main__":
-    setup_logging(logger)
+    setup_logging(logger, "sample.log")
     logger.warning("This is a warning!")
