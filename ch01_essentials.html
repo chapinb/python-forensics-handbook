@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Chapter 1 - Essential Scripts &mdash; Python Forensics Handbook 0.1.1 documentation</title>
+  <title>Chapter 1 - Essential Scripts &mdash; Python Forensics Handbook 0.1.2 documentation</title>
   
 
   
@@ -72,7 +72,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -286,16 +286,18 @@ to write content to STDOUT uninterrupted. Additionally, you can
 set different logging levels for the two handlers - generally you
 keep debugging information in the log file while writing more
 critical messages to the console in STDERR.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">(</span><span class="n">logging_obj</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">(</span><span class="n">logging_obj</span><span class="p">,</span> <span class="n">log_file</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Function to setup logging configuration and test it.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        logging_obj: A logging instance, returned from logging.getLogger().</span>
+<span class="sd">        log_file: File path to write log messages to.</span>
 <span class="sd">        verbose: Whether or not to enable the debug level in STDERR output.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; sample_logger = logging.getLogger(name=__name__)</span>
-<span class="sd">        &gt;&gt;&gt; sample_logger = setup_logging(sample_logger)</span>
+<span class="sd">        &gt;&gt;&gt; log_path = &quot;sample.log&quot;</span>
+<span class="sd">        &gt;&gt;&gt; setup_logging(sample_logger, log_path, verbose=True)</span>
 <span class="sd">        &gt;&gt;&gt; sample_logger.debug(&quot;This is a debug message&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; sample_logger.info(&quot;This is an info message&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; sample_logger.warning(&quot;This is a warning message&quot;)</span>
@@ -320,15 +322,13 @@ critical messages to the console in STDERR.</p>
     <span class="n">stderr_handle</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">log_format</span><span class="p">)</span>
 
     <span class="c1"># Setup file logging</span>
-    <span class="n">file_handle</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;sample.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_file</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
     <span class="n">file_handle</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
     <span class="n">file_handle</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">log_format</span><span class="p">)</span>
 
     <span class="c1"># Add handles</span>
     <span class="n">logging_obj</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stderr_handle</span><span class="p">)</span>
     <span class="n">logging_obj</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">logging_obj</span>
 </pre></div>
 </div>
 </div>
@@ -336,19 +336,21 @@ critical messages to the console in STDERR.</p>
 <h3>Docstring References<a class="headerlink" href="#docstring-references" title="Permalink to this headline">¶</a></h3>
 <dl class="py function">
 <dt id="pyforhandbook.ch01_essentials.logging_example.setup_logging">
-<code class="sig-name descname">setup_logging</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logging_obj</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.logging_example.setup_logging" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setup_logging</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logging_obj</span></em>, <em class="sig-param"><span class="n">log_file</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyforhandbook.ch01_essentials.logging_example.setup_logging" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to setup logging configuration and test it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logging_obj</strong> – A logging instance, returned from logging.getLogger().</p></li>
+<li><p><strong>log_file</strong> – File path to write log messages to.</p></li>
 <li><p><strong>verbose</strong> – Whether or not to enable the debug level in STDERR output.</p></li>
 </ul>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span> <span class="o">=</span> <span class="n">setup_logging</span><span class="p">(</span><span class="n">sample_logger</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log_path</span> <span class="o">=</span> <span class="s2">&quot;sample.log&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">setup_logging</span><span class="p">(</span><span class="n">sample_logger</span><span class="p">,</span> <span class="n">log_path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug message&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info message&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
